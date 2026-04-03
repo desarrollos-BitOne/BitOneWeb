@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logoHorizontal from '../assets/LogoHorizontalMonocromatico.png';
+import { trackEvent } from './Analytics';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -43,6 +44,7 @@ export default function Navbar() {
           className="btn-primary nav-btn"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent('Navbar', 'WhatsApp Click', 'Cotizar')}
         >
           Cotizar
         </a>

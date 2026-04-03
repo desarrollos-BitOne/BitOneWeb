@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from './Analytics';
 import './Hero.css';
 
 export default function Hero() {
@@ -44,10 +45,20 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-group">
-            <Link to="/servicios" className="btn-hero-primary">
+            <Link 
+              to="/servicios" 
+              className="btn-hero-primary" 
+              onClick={() => trackEvent('Hero', 'Click', 'Ver Soluciones')}
+            >
               Ver Soluciones
             </Link>
-            <a href="https://wa.me/526681963932?text=Hola,%20me%20gustaría%20hablar%20con%20un%20experto" className="btn-hero-secondary" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://wa.me/526681963932?text=Hola,%20me%20gustaría%20hablar%20con%20un%20experto" 
+              className="btn-hero-secondary" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('Hero', 'WhatsApp Click', 'Contactar Experto')}
+            >
               Contactar Experto
             </a>
           </div>

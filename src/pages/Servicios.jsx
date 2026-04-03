@@ -3,6 +3,7 @@ import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { trackEvent } from '../components/Analytics';
 import './Servicios.css';
 
 export default function Servicios() {
@@ -55,11 +56,21 @@ export default function Servicios() {
                 </div>
                 
                 {service.actionUrl?.startsWith('/') ? (
-                  <Link to={service.actionUrl} className="btn-primary">
+                  <Link 
+                    to={service.actionUrl} 
+                    className="btn-primary"
+                    onClick={() => trackEvent('Services', 'Click', service.title)}
+                  >
                     Saber más
                   </Link>
                 ) : (
-                  <a href={service.actionUrl || "mailto:atencionclientes@bit-one.net"} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href={service.actionUrl || "mailto:atencionclientes@bit-one.net"} 
+                    className="btn-primary" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('Services', 'External Click', service.title)}
+                  >
                     Saber más
                   </a>
                 )}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import logoHorizontal from '../assets/LogoHorizontalMonocromatico.png';
+import { trackEvent } from './Analytics';
 import './Footer.css';
 
 export default function Footer() {
@@ -44,16 +45,42 @@ export default function Footer() {
         <div className="footer-social">
           <h3>Conecta con nosotros</h3>
           <div className="social-links">
-            <a href="https://www.facebook.com/share/18GBcUvQqF/" target="_blank" rel="noopener noreferrer" className="social-icon-btn" title="Facebook">
+            <a 
+              href="https://www.facebook.com/share/18GBcUvQqF/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-btn" 
+              title="Facebook"
+              onClick={() => trackEvent('Footer', 'Social Click', 'Facebook')}
+            >
               <FaFacebook size={20} />
             </a>
-            <a href="https://www.instagram.com/bitone.mx?utm_source=qr&igsh=dGRjdWxwajgzaGdp" target="_blank" rel="noopener noreferrer" className="social-icon-btn" title="Instagram">
+            <a 
+              href="https://www.instagram.com/bitone.mx?utm_source=qr&igsh=dGRjdWxwajgzaGdp" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-btn" 
+              title="Instagram"
+              onClick={() => trackEvent('Footer', 'Social Click', 'Instagram')}
+            >
               <FaInstagram size={20} />
             </a>
-            <a href="https://wa.me/526681963932?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" className="social-icon-btn" title="WhatsApp">
+            <a 
+              href="https://wa.me/526681963932?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-btn" 
+              title="WhatsApp"
+              onClick={() => trackEvent('Footer', 'Social Click', 'WhatsApp')}
+            >
               <FaWhatsapp size={20} />
             </a>
-            <a href="mailto:atencionclientes@bit-one.net" className="social-icon-btn" title="Correo">
+            <a 
+              href="mailto:atencionclientes@bit-one.net" 
+              className="social-icon-btn" 
+              title="Correo"
+              onClick={() => trackEvent('Footer', 'Social Click', 'Email')}
+            >
               <FaEnvelope size={20} />
             </a>
           </div>

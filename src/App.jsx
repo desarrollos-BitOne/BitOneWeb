@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Proceso from './pages/Proceso';
 import ScrollToTop from './components/ScrollToTop';
+import Analytics from './components/Analytics';
 import logoSolo from './assets/LogoSoloMonocromatico.png';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
     <HelmetProvider>
       <Router>
       <ScrollToTop />
+      <Analytics />
       <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
         <img src={logoSolo} alt="" className="global-watermark" />
         <Navbar />
