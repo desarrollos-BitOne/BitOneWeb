@@ -82,11 +82,23 @@ main {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --section-padding: 60px;
+  }
   .global-watermark {
     width: 500px;
     height: 500px;
     right: -15%;
     top: 20%;
+  }
+}
+
+@media (max-width: 350px) {
+  :root {
+    --section-padding: 40px;
+  }
+  .container {
+    width: 92%;
   }
 }
 

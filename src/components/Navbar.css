@@ -81,3 +81,26 @@
     display: none;
   }
 }
+
+@media (max-width: 400px) {
+  .nav-logo img {
+    height: 70px;
+  }
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  .modern-navbar {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .nav-logo img {
+    height: 60px;
+  }
+  .nav-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}

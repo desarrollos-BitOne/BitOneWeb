@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 export default function Hero() {
@@ -43,9 +44,9 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-group">
-            <a href="/servicios" className="btn-hero-primary">
+            <Link to="/servicios" className="btn-hero-primary">
               Ver Soluciones
-            </a>
+            </Link>
             <a href="https://wa.me/526681963932?text=Hola,%20me%20gustaría%20hablar%20con%20un%20experto" className="btn-hero-secondary" target="_blank" rel="noopener noreferrer">
               Contactar Experto
             </a>
