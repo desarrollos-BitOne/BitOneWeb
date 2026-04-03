@@ -10,7 +10,6 @@ export default function Analytics() {
   useEffect(() => {
     if (GA_MEASUREMENT_ID) {
       ReactGA.initialize(GA_MEASUREMENT_ID);
-      console.log('GA4 Initialized with ID:', GA_MEASUREMENT_ID);
     }
   }, []);
 
