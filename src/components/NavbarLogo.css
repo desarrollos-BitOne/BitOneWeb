@@ -1,0 +1,13 @@
+/* Estilos complementarios para imágenes de logo */
+.navbar-brand-img {
+  height: 35px; /* Altura ideal del nav */
+  width: auto;
+  object-fit: contain;
+  /* LogoMonocromatico probablemente sea oscuro, usar filtro para volverlo blanco */
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover .navbar-brand-img {
+  opacity: 0.8;
+}

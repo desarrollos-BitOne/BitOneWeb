@@ -1,0 +1,89 @@
+/* --- PROBLEMA Y PVU (ESTRATEGIA) --- */
+.problem-section {
+  padding: 120px 0;
+  background-color: white;
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.section-tag {
+  color: var(--bitone-pink);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.problem-text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.problem-text p {
+  font-size: 1.15rem;
+  color: var(--bitone-text-gray);
+  line-height: 1.7;
+}
+
+.pvu-card {
+  background: var(--bitone-dark);
+  padding: 50px;
+  border-radius: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.pvu-card::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, var(--bitone-cyan) 0%, transparent 70%);
+  opacity: 0.2;
+}
+
+.pvu-icon { font-size: 3rem; margin-bottom: 20px; }
+.pvu-card h3 { color: var(--bitone-cyan); margin-bottom: 15px; font-size: 1.5rem; }
+.pvu-card p { opacity: 0.8; font-style: italic; line-height: 1.6; }
+
+/* --- SERVICIOS MINIMAL --- */
+.service-card-minimal {
+  background: #f8fafc;
+  padding: 45px;
+  border-radius: 25px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card-minimal:hover {
+  background: white;
+  border-color: var(--bitone-cyan);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 242, 254, 0.05);
+}
+
+.icon-box {
+  width: 60px; height: 60px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 15px;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 968px) {
+  .split-grid { grid-template-columns: 1fr; gap: 40px; }
+  .problem-text h2 { font-size: 2.2rem; }
+}

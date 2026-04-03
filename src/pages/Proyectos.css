@@ -1,0 +1,241 @@
+.proyectos-page {
+  background: var(--bitone-dark);
+  min-height: 100vh;
+  padding-top: 140px;
+}
+
+.proyectos-showcase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 50px 0 100px;
+}
+
+.proyecto-showcase-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Separación limpia entre cartas */
+  position: relative;
+}
+
+/* Zig-Zag pattern */
+.proyecto-showcase-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Panel Izquierdo: Proyecto */
+.proyecto-main-side {
+  flex: 1.2;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+  border: 1px solid rgba(0, 242, 254, 0.1);
+  border-radius: 30px;
+  padding: 50px; /* Modificamos a padding limpio constante */
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* (The glow logic stays naturally further down) */
+
+.project-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.proyecto-featured-image {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.proyecto-featured-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.proyecto-date-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #00f2fe;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.proyecto-logo-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.p-logo {
+  height: 60px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+}
+
+.company-text-fallback {
+  color: #00f2fe;
+  font-weight: 800;
+  font-size: 1.5rem;
+  display: block;
+}
+
+.work-desc-box {
+  margin-top: 20px;
+}
+
+.work-desc-tag {
+  display: inline-block;
+  background: rgba(0, 242, 254, 0.1);
+  color: #00f2fe;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  margin-bottom: 15px;
+}
+
+.work-desc {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+/* Panel Derecho: Quote / Reseña */
+.quote-side {
+  flex: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+  /* Sin overlaps destructivos para cuidar la lectura */
+}
+
+.proyecto-showcase-item:nth-child(even) .quote-side {
+  justify-content: flex-end; 
+}
+
+.quote-card-premium {
+  width: 100%;
+  max-width: 500px;
+  min-width: 320px;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(25px);
+  padding: 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #ec4899;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.quote-mark-large {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  font-size: 6rem;
+  color: #ec4899;
+  opacity: 0.15;
+  font-family: serif;
+  line-height: 1;
+}
+
+.quote-text-premium {
+  font-size: 1.25rem;
+  color: #f1f5f9;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.author-premium-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+.author-avatar-proxy {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00f2fe 0%, #ec4899 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.person-name-premium {
+  font-weight: 700;
+  color: white;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.person-role-premium {
+  font-size: 0.9rem;
+  color: #00f2fe;
+}
+
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 1024px) {
+  .proyecto-showcase-item {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+  
+  .quote-side {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: -40px; /* Overlap on Y axis */
+  }
+  
+  .proyecto-main-side {
+    padding: 30px;
+  }
+  
+  .quote-card-premium {
+    padding: 30px;
+  }
+
+  .proyecto-featured-image {
+    height: 200px;
+  }
+  .proyecto-logo-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,186 @@
+.services-section-dark {
+  padding: 120px 20px;
+  background-color: #020617; /* Sincronizado con Hero y Portfolio */
+  color: white;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header-center h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  color: white !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00f2fe 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.section-header-center p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+/* --- GRID DE SERVICIOS (SPACIOUS) --- */
+.services-spacious-grid {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .services-spacious-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .services-spacious-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-spacious-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card-glass {
+  position: relative;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  padding: 50px 40px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.service-card-glass:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 242, 254, 0.3);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 242, 254, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.service-icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  /* Efecto para que iconos oscuros se vean blancos en el tema oscuro */
+  filter: brightness(0) invert(1); 
+}
+
+.service-card-glass h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.service-card-glass p {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* --- BADGES --- */
+.service-badges {
+  display: flex;
+  gap: 12px;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Efecto de brillo en la esquina al hacer hover */
+.card-glow-effect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.service-card-glass:hover .card-glow-effect {
+  opacity: 1;
+}
+
+.service-link-btn {
+  display: inline-block;
+  color: #00f2fe;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-link-btn:hover {
+  transform: translateX(5px);
+  color: #ec4899;
+}
+
+.services-footer-cta {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 242, 254, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .section-header-center h2 { font-size: 2.5rem; }
+  .service-card-glass { padding: 40px 30px; }
+}

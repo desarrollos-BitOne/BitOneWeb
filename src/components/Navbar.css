@@ -1,0 +1,83 @@
+/* 1. Estado inicial: 100% Transparente y sin sombras */
+.modern-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent !important;
+  /* Obliga a que sea invisible */
+  box-shadow: none !important;
+  /* Mata cualquier sombra fantasma */
+  border-bottom: none !important;
+}
+
+/* 2. Estado al bajar (Scroll): Se oscurece para que puedas leer los links */
+.modern-navbar.scrolled {
+  padding: 15px 0;
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  /* Azul oscuro de BitOne */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ajustes del Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--bitone-cyan);
+}
+
+.nav-btn {
+  padding: 10px 25px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}

@@ -1,0 +1,198 @@
+/* ==============================================
+   PÁGINA DE PROCESO (CÓMO TRABAJAMOS)
+============================================== */
+.process-page-modern {
+  background: var(--bitone-dark);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- HERO --- */
+.process-hero {
+  padding: 140px 20px 60px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top, rgba(0, 242, 254, 0.05) 0%, transparent 60%);
+}
+
+.hero-badge-glass.process-badge {
+  margin: 0 auto 30px;
+  width: max-content;
+}
+
+.hero-subtitle.centered {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* --- TIMELINE CONTAINER --- */
+.timeline-section {
+  padding: 80px 20px 140px;
+  position: relative;
+}
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Línea conectora central */
+.timeline-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 242, 254, 0.3), rgba(236, 72, 153, 0.3), transparent);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* --- ITEMS INDIVIDUALES --- */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- NODO CENTRAL (PUNTO Y GLOW) --- */
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: #0f172a;
+  border: 2px solid #00f2fe;
+  border-radius: 50%;
+  z-index: 5; /* Por encima de la línea */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+}
+
+.node-icon {
+  font-size: 1.2rem; /* El emoji/icono en el medio */
+}
+
+/* --- TARJETA DE CONTENIDO --- */
+.timeline-card {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  padding: 0 50px;
+}
+
+/* Distribución asimétrica Izquierda/Derecha */
+.timeline-item.left {
+  justify-content: flex-start;
+}
+.timeline-item.left .timeline-card {
+  padding-left: 0;
+  padding-right: 50px;
+  text-align: right; /* Alinea texto hacia el centro */
+}
+.timeline-item.left .card-glass {
+  align-items: flex-end; /* Alinea los items (badge) a la derecha */
+}
+
+.timeline-item.right {
+  justify-content: flex-end;
+}
+.timeline-item.right .timeline-card {
+  padding-right: 0;
+  padding-left: 50px;
+  text-align: left;
+}
+.timeline-item.right .card-glass {
+  align-items: flex-start;
+}
+
+/* Estilo de la caja Dark Glass */
+.card-glass {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.card-glass:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 242, 254, 0.3);
+}
+
+.step-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: #00f2fe;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px 15px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  width: max-content;
+}
+
+.card-glass h3 {
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.card-glass p {
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* ==============================================
+   RESPONSIVE MÓVIL
+============================================== */
+@media screen and (max-width: 768px) {
+  .process-hero {
+    padding-top: 100px;
+  }
+  
+  .timeline-wrapper::after {
+    left: 31px; /* Mueve la línea pegada al borde izquierdo */
+    transform: none;
+  }
+
+  .timeline-item {
+    justify-content: flex-start; /* Todo se alinea a la izquierda */
+  }
+
+  .timeline-node {
+    left: 20px; /* Coloca los nodos sobre la nueva línea (mitad de 20px + borde = ~31px) */
+    transform: none;
+    width: 40px;
+    height: 40px;
+  }
+  .node-icon { font-size: 1rem; }
+
+  .timeline-card {
+    width: 100%;
+    padding: 0 0 0 70px !important; /* Espacio para que no toque la línea lateral */
+    text-align: left !important; /* Fuerza todo texto izq */
+  }
+
+  .timeline-item.left .card-glass, 
+  .timeline-item.right .card-glass {
+    align-items: flex-start; /* Fuerza todos los tags a la izquierda */
+    padding: 30px 20px;
+  }
+}

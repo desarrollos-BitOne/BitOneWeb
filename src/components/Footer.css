@@ -1,0 +1,190 @@
+.modern-footer {
+  background-color: var(--bitone-dark, #0f172a);
+  color: white;
+  position: relative;
+  margin-top: 60px;
+  /* Reducido */
+}
+
+/* --- CIERRE DE VENTA COMPACTO --- */
+.footer-cta-wrapper {
+  position: relative;
+  top: -50px;
+  /* Sube menos */
+  margin-bottom: -20px;
+}
+
+.footer-cta {
+  background: #1e293b;
+  border-radius: 20px;
+  /* Menos curvo */
+  padding: 35px 40px;
+  /* Drásticamente menos padding */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  /* Hacemos que sea horizontal en escritorio */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-text-content {
+  flex: 1;
+}
+
+.footer-cta h2 {
+  font-size: 1.8rem;
+  /* Letra más chica */
+  margin-bottom: 5px;
+}
+
+.footer-cta p {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 0;
+  /* Sin margen inferior */
+}
+
+.footer-cta .btn-primary {
+  white-space: nowrap;
+  /* Evita que el botón se parta en dos líneas */
+}
+
+/* --- GRID DEL FOOTER --- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  /* Menos hueco entre columnas */
+  padding: 10px 0 40px;
+  /* Menos espacio arriba y abajo */
+}
+
+.footer-logo img {
+  height: 100px;
+  /* Logo equilibrado */
+  width: auto;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.footer-description {
+  color: #94a3b8;
+  line-height: 1.5;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.footer-links h3,
+.footer-social h3 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: var(--bitone-cyan);
+  padding-left: 5px;
+}
+
+/* --- REDES SOCIALES --- */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.social-icon-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* Círculo perfecto */
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon-btn:hover {
+  background: rgba(0, 242, 254, 0.1);
+  border-color: var(--bitone-cyan);
+  color: var(--bitone-cyan);
+  transform: translateY(-3px);
+}
+
+.footer-location {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: 15px;
+}
+
+/* --- COPYRIGHT --- */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 968px) {
+  .footer-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-description {
+    margin: 0 auto;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,125 @@
+/* =========================================
+   1. FUENTES Y VARIABLES GLOBALES
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+  /* Paleta BitOne */
+  --bitone-cyan: #00f2fe;
+  --bitone-pink: #ff1b6b;
+  --bitone-dark: #0f172a;
+  --bitone-light: #f8fafc;
+  --bitone-text-gray: #64748b;
+  
+  /* Espaciados y transiciones */
+  --section-padding: 100px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   2. RESETS Y FIX PARA EL BLOQUE NEGRO
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FIX: Evita el horizontal scroll en móviles causados por absolutos sin romper el 'position: sticky' */
+html, body {
+  width: 100%;
+  overflow-x: clip; 
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 100% !important; /* Rompe el límite de 1280px de Vite */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bitone-dark);
+  color: var(--bitone-light);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   3. ESTRUCTURA PRINCIPAL (LAYOUT)
+========================================= */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Empuja el footer siempre al fondo */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* MARCA DE AGUA GLOBAL */
+.global-watermark {
+  position: fixed;
+  top: 15%;
+  right: -5%;
+  width: 900px;
+  height: 900px;
+  object-fit: contain;
+  opacity: 0.03;
+  z-index: 0;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .global-watermark {
+    width: 500px;
+    height: 500px;
+    right: -15%;
+    top: 20%;
+  }
+}
+
+/* =========================================
+   4. UTILIDADES GLOBALES Y BOTONES
+========================================= */
+.gradient-text {
+  background: linear-gradient(135deg, var(--bitone-cyan), var(--bitone-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Botón Primary - Única versión limpia y centrada */
+.btn-primary {
+  background: linear-gradient(135deg, var(--bitone-pink), var(--bitone-cyan));
+  color: white !important;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-smooth);
+  box-shadow: 0 10px 20px -5px rgba(255, 27, 107, 0.4);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px -5px rgba(0, 242, 254, 0.5);
+}

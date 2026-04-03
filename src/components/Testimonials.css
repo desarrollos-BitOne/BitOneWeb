@@ -1,0 +1,130 @@
+.testimonials-section {
+  padding: 100px 20px;
+  background-color: #0f172a; /* Slightly different dark for contrast */
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonials-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 30px;
+  margin-top: 50px;
+  padding: 20px 0; /* Mantiene la sombra sin cortarse */
+  
+  /* Habilitamos scrollbars personalizadas para ratones de PC */
+}
+
+/* Custom minimal scrollbar para el Slider */
+.testimonials-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.testimonials-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+.testimonials-grid::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.3);
+  border-radius: 10px;
+}
+.testimonials-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.6);
+}
+
+.testimonial-card {
+  min-width: 350px;
+  max-width: 450px;
+  flex-shrink: 0;
+  scroll-snap-align: center; /* Se atora al centro de la pantalla */
+  
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 242, 254, 0.2);
+}
+
+.quote-icon {
+  font-size: 4rem;
+  font-family: serif;
+  color: #00f2fe;
+  opacity: 0.2;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  line-height: 1;
+}
+
+.testimonial-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-author-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00f2fe 0%, #ec4899 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.author-avatar-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.author-role {
+  font-size: 0.85rem;
+  color: #00f2fe; /* Destaca el cargo de la persona */
+}
+
+.author-company {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
