@@ -12,17 +12,23 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Subtítulo / Gancho (Hook)',
+      type: 'string',
+      description: 'Frase corta e impactante que aparece bajo el título tanto en el Home como en la página de servicios.',
+    }),
+    defineField({
       name: 'summary',
       title: 'Resumen Corto',
       type: 'text',
       rows: 3,
-      description: 'Aparece en la tarjeta simplificada.',
+      description: 'Breve descripción que aparece exclusivamente en la tarjeta del Home.',
     }),
     defineField({
       name: 'description',
-      title: 'Descripción Extensa',
+      title: 'Descripción Detallada',
       type: 'blockContent',
-      description: 'Aparece en la página completa de servicios.',
+      description: 'Contenido extenso que aparece exclusivamente en la sección de servicios.',
     }),
     defineField({
       name: 'icon',

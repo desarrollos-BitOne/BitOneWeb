@@ -12,7 +12,14 @@ export default function Servicios() {
 
   useEffect(() => {
     // Consulta los servicios ordenados por fecha de creación ascendente (automáticamente)
-    client.fetch(`*[_type == "service"] | order(_createdAt asc)`)
+    client.fetch(`*[_type == "service"] | order(_createdAt asc){
+      _id,
+      title,
+      subtitle,
+      description,
+      icon,
+      actionUrl
+    }`)
       .then(setServices)
       .catch(console.error);
   }, []);
@@ -62,8 +69,8 @@ export default function Servicios() {
               </div>
 
               <div className="zigzag-text">
-                <span className="service-summary-premium">{service.summary}</span>
                 <h2>{service.title}</h2>
+                {service.subtitle && <p className="service-subtitle-premium">{service.subtitle}</p>}
 
                 <div className="service-rich-text">
                   {service.description && <PortableText value={service.description} />}

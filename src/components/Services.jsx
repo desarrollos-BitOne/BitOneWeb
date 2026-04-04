@@ -36,6 +36,7 @@ export default function Services({ services }) {
                 </div>
                 
                 <h3>{ser.title}</h3>
+                {ser.subtitle && <h4 className="service-subtitle">{ser.subtitle}</h4>}
                 <p>{ser.summary}</p>
                 
                 {ser.actionUrl?.startsWith('/') ? (

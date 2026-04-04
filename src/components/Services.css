@@ -97,8 +97,18 @@
 .service-card-glass h3 {
   font-size: 1.8rem;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: white;
+}
+
+.service-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00f2fe;
+  margin-bottom: 18px;
+  display: block;
+  font-style: italic;
+  opacity: 0.85;
 }
 
 .service-card-glass p {

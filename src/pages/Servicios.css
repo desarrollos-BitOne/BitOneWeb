@@ -93,14 +93,19 @@
   letter-spacing: -0.5px;
 }
 
-.service-summary-premium {
-  font-size: 1rem;
-  font-weight: 700;
+.service-subtitle-premium {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #00f2fe;
-  margin-bottom: 15px;
+  margin-top: -10px;
+  margin-bottom: 25px;
   display: block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.service-summary-premium {
+  display: none; /* Removed as per user request to only show long description */
 }
 
 .service-rich-text {

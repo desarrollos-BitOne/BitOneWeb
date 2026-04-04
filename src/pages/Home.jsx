@@ -27,7 +27,14 @@ export default function Home() {
         workDescription,
         date
       },
-      "services": *[_type == "service"] | order(_createdAt asc)[0..2],
+      "services": *[_type == "service"] | order(_createdAt asc)[0..2]{
+        _id,
+        title,
+        subtitle,
+        summary,
+        icon,
+        actionUrl
+      },
       "testimonials": *[_type == "testimonial" && approved == true] | order(_createdAt desc){
         _id,
         authorName,

@@ -13,9 +13,8 @@
 
 /* HERO */
 /* HERO */
-.about-hero-premium {
-  /* Estilos base heredados globalmente */
-}
+/* .about-hero-premium utiliza estilos base heredados globalmente */
+
 
 .hero-content-wrapper {
   max-width: 900px;
