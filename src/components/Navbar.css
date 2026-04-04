@@ -8,17 +8,14 @@
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent !important;
-  /* Obliga a que sea invisible */
   box-shadow: none !important;
-  /* Mata cualquier sombra fantasma */
   border-bottom: none !important;
 }
 
-/* 2. Estado al bajar (Scroll): Se oscurece para que puedas leer los links */
+/* 2. Estado al bajar (Scroll): Se oscurece */
 .modern-navbar.scrolled {
   padding: 15px 0;
   background-color: rgba(15, 23, 42, 0.95) !important;
-  /* Azul oscuro de BitOne */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
@@ -28,27 +25,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 1001;
 }
 
-/* Ajustes del Logo */
 .nav-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  z-index: 1002;
 }
 
 .nav-logo img {
   height: 100px;
   width: auto;
   display: block;
-}
-
-.logo-text {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: white;
-  text-decoration: none;
-  letter-spacing: -1px;
+  transition: height 0.3s ease;
 }
 
 .nav-links {
@@ -57,6 +49,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.nav-links.desktop-only {
+  display: flex;
 }
 
 .nav-links a {
@@ -71,36 +67,131 @@
   color: var(--bitone-cyan);
 }
 
-.nav-btn {
-  padding: 10px 25px;
-  font-size: 0.9rem;
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1002;
+}
+
+.nav-btn.desktop-only {
+  display: inline-block;
+}
+
+/* HAMBURGER TOGGLE */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.mobile-toggle:hover {
+  color: var(--bitone-cyan);
+}
+
+/* MOBILE OVERLAY */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-overlay.active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+
+.mobile-nav-links li {
+  margin: 25px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.4s ease;
+}
+
+.mobile-overlay.active .mobile-nav-links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for mobile links */
+.mobile-overlay.active .mobile-nav-links li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-overlay.active .mobile-nav-links li:nth-child(2) { transition-delay: 0.2s; }
+.mobile-overlay.active .mobile-nav-links li:nth-child(3) { transition-delay: 0.3s; }
+.mobile-overlay.active .mobile-nav-links li:nth-child(4) { transition-delay: 0.4s; }
+.mobile-overlay.active .mobile-nav-links li:nth-child(5) { transition-delay: 0.5s; }
+.mobile-overlay.active .mobile-nav-links li:nth-child(6) { transition-delay: 0.6s; }
+
+.mobile-nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  transition: 0.3s;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--bitone-cyan);
+}
+
+.mobile-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.1rem !important;
+  padding: 15px 40px !important;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 25px;
+  }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .desktop-only {
+    display: none !important;
   }
-}
+  
+  .mobile-toggle {
+    display: block;
+  }
 
-@media (max-width: 400px) {
   .nav-logo img {
     height: 70px;
   }
-  .nav-btn {
-    padding: 8px 16px;
-    font-size: 0.8rem;
-  }
+
   .modern-navbar {
     padding: 15px 0;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .nav-logo img {
     height: 60px;
-  }
-  .nav-btn {
-    padding: 6px 12px;
-    font-size: 0.75rem;
   }
 }
