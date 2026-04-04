@@ -82,7 +82,7 @@ export default function Servicios() {
                     className="btn-primary"
                     onClick={() => trackEvent('Services', 'Click', service.title)}
                   >
-                    Detalles Técnicos
+                    Saber más
                   </Link>
                 ) : (
                   <a
@@ -92,7 +92,7 @@ export default function Servicios() {
                     rel="noopener noreferrer"
                     onClick={() => trackEvent('Services', 'External Click', service.title)}
                   >
-                    Detalles Técnicos
+                    Saber más
                   </a>
                 )}
               </div>

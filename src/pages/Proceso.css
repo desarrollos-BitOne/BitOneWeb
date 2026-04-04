@@ -9,9 +9,7 @@
 }
 
 /* --- HERO --- */
-.process-hero {
-  /* Los estilos base se heredan de .hero-section-premium en index.css */
-}
+/* Los estilos base se heredan de .hero-section-premium en index.css */
 /* Reutiliza .hero-badge-glass y .live-dot-pulse globales */
 
 
@@ -65,7 +63,8 @@
   background: #0f172a;
   border: 2px solid #00f2fe;
   border-radius: 50%;
-  z-index: 5; /* Por encima de la línea */
+  z-index: 5;
+  /* Por encima de la línea */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +72,8 @@
 }
 
 .node-icon {
-  font-size: 1.2rem; /* El emoji/icono en el medio */
+  font-size: 1.2rem;
+  /* El emoji/icono en el medio */
 }
 
 /* --- TARJETA DE CONTENIDO --- */
@@ -88,23 +88,29 @@
 .timeline-item.left {
   justify-content: flex-start;
 }
+
 .timeline-item.left .timeline-card {
   padding-left: 0;
   padding-right: 50px;
-  text-align: right; /* Alinea texto hacia el centro */
+  text-align: right;
+  /* Alinea texto hacia el centro */
 }
+
 .timeline-item.left .card-glass {
-  align-items: flex-end; /* Alinea los items (badge) a la derecha */
+  align-items: flex-end;
+  /* Alinea los items (badge) a la derecha */
 }
 
 .timeline-item.right {
   justify-content: flex-end;
 }
+
 .timeline-item.right .timeline-card {
   padding-right: 0;
   padding-left: 50px;
   text-align: left;
 }
+
 .timeline-item.right .card-glass {
   align-items: flex-start;
 }
@@ -116,7 +122,7 @@
   padding: 40px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   transition: transform 0.4s ease, border-color 0.4s ease;
@@ -160,33 +166,42 @@
   .process-hero {
     padding-top: 100px;
   }
-  
+
   .timeline-wrapper::after {
-    left: 31px; /* Mueve la línea pegada al borde izquierdo */
+    left: 31px;
+    /* Mueve la línea pegada al borde izquierdo */
     transform: none;
   }
 
   .timeline-item {
-    justify-content: flex-start; /* Todo se alinea a la izquierda */
+    justify-content: flex-start;
+    /* Todo se alinea a la izquierda */
   }
 
   .timeline-node {
-    left: 20px; /* Coloca los nodos sobre la nueva línea (mitad de 20px + borde = ~31px) */
+    left: 20px;
+    /* Coloca los nodos sobre la nueva línea (mitad de 20px + borde = ~31px) */
     transform: none;
     width: 40px;
     height: 40px;
   }
-  .node-icon { font-size: 1rem; }
+
+  .node-icon {
+    font-size: 1rem;
+  }
 
   .timeline-card {
     width: 100%;
-    padding: 0 0 0 70px !important; /* Espacio para que no toque la línea lateral */
-    text-align: left !important; /* Fuerza todo texto izq */
+    padding: 0 0 0 70px !important;
+    /* Espacio para que no toque la línea lateral */
+    text-align: left !important;
+    /* Fuerza todo texto izq */
   }
 
-  .timeline-item.left .card-glass, 
+  .timeline-item.left .card-glass,
   .timeline-item.right .card-glass {
-    align-items: flex-start; /* Fuerza todos los tags a la izquierda */
+    align-items: flex-start;
+    /* Fuerza todos los tags a la izquierda */
     padding: 30px 20px;
   }
 }

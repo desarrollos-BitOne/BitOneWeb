@@ -13,7 +13,7 @@ export default function Services({ services }) {
           <span className="section-tag">Nuestras Soluciones</span>
           <h2>Tecnología con <span className="gradient-text">Propósito</span></h2>
           <p>
-            No solo escribimos código; realizamos un diagnóstico empresarial para 
+            No solo escribimos código; realizamos un diagnóstico empresarial para
             garantizar que cada solución impulse tu rentabilidad.
           </p>
         </div>
@@ -25,20 +25,20 @@ export default function Services({ services }) {
               <div className="service-card-content">
                 <div className="icon-wrapper">
                   {ser.icon?.asset ? (
-                    <img 
-                      src={urlFor(ser.icon).width(120).url()} 
-                      alt={ser.title} 
+                    <img
+                      src={urlFor(ser.icon).width(120).url()}
+                      alt={ser.title}
                       className="service-icon-img"
                     />
                   ) : (
                     <span className="default-icon"></span>
                   )}
                 </div>
-                
+
                 <h3>{ser.title}</h3>
                 {ser.subtitle && <h4 className="service-subtitle">{ser.subtitle}</h4>}
                 <p>{ser.summary}</p>
-                
+
                 {ser.actionUrl?.startsWith('/') ? (
                   <Link to={ser.actionUrl} className="service-link-btn">Saber más &rarr;</Link>
                 ) : (

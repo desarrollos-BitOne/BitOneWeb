@@ -72,8 +72,8 @@ export default function Home() {
 
   return (
     <div className="home-modern">
-      <Seo 
-        title="Consultoría y Desarrollo de Software Premium" 
+      <Seo
+        title="Consultoría y Desarrollo de Software Premium"
         description="Transformamos empresas operativas en negocios digitales eficientes en Los Mochis. Desarrollo de software a medida, e-commerce y consultoría tecnológica premium para pymes."
         url=""
       />
@@ -84,7 +84,7 @@ export default function Home() {
       {data && <Testimonials testimonials={data.testimonials} />}
       <HomeBlog />
       {data && <Marquee projects={data.projects} />}
-      <Cta 
+      <Cta
         title="No te quedes rezagado en el pasado digital"
         description="Ya conoces a BitOne. Es hora de llevar tus procesos al siguiente nivel con software limpio, moderno y accesible."
         buttonText="Iniciar Análisis Gratuito"
