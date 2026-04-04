@@ -7,7 +7,7 @@ import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import HomeBlog from '../components/HomeBlog'; // NUEVO COMPONENTE BARAJA LECTURAS ALEATORIAS
-import CtaFooter from '../components/CtaFooter';
+import Cta from '../components/Cta';
 import './Home.css';
 
 import Seo from '../components/Seo';
@@ -77,7 +77,12 @@ export default function Home() {
       {data && <Testimonials testimonials={data.testimonials} />}
       <HomeBlog />
       {data && <Marquee projects={data.projects} />}
-      <CtaFooter />
+      <Cta 
+        title="No te quedes rezagado en el pasado digital"
+        description="Ya conoces a BitOne. Es hora de llevar tus procesos al siguiente nivel con software limpio, moderno y accesible."
+        buttonText="Iniciar Análisis Gratuito"
+        pageName="Home"
+      />
     </div>
   );
 }

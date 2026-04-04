@@ -10,16 +10,10 @@
 
 /* --- HERO --- */
 .process-hero {
-  padding: 140px 20px 60px;
-  text-align: center;
-  position: relative;
-  background: radial-gradient(circle at top, rgba(0, 242, 254, 0.05) 0%, transparent 60%);
+  /* Los estilos base se heredan de .hero-section-premium en index.css */
 }
+/* Reutiliza .hero-badge-glass y .live-dot-pulse globales */
 
-.hero-badge-glass.process-badge {
-  margin: 0 auto 30px;
-  width: max-content;
-}
 
 .hero-subtitle.centered {
   margin: 0 auto;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '../lib/sanity';
 import Seo from '../components/Seo';
+import Cta from '../components/Cta';
 import './Proyectos.css';
 
 export default function Proyectos() {
@@ -32,7 +33,7 @@ export default function Proyectos() {
         description="Evidencia de resultados. Explora los sistemas y aplicaciones web que hemos construido para modernizar la estructura operativa de nuestros clientes."
         url="/proyectos"
       />
-      <div className="container relative-z text-center" style={{ marginBottom: '80px' }}>
+      <section className="proyectos-hero hero-section-premium container relative-z text-center">
         <div className="hero-badge-glass process-badge">
            <span className="live-dot-pulse"></span> Impacto Real
         </div>
@@ -42,7 +43,7 @@ export default function Proyectos() {
         <p className="hero-subtitle centered">
           No somos de hablar de nosotros mismos. Dejamos que los resultados técnicos y los testimonios de nuestros clientes hablen por nuestro trabajo.
         </p>
-      </div>
+      </section>
 
       <div className="container">
         <div className="proyectos-showcase-list">
@@ -112,6 +113,15 @@ export default function Proyectos() {
           })}
         </div>
       </div>
+
+      <Cta 
+        title="¿Tu proyecto es el siguiente caso de éxito?"
+        description="Hablemos sobre cómo podemos transformar tu visión en una herramienta digital de alto rendimiento."
+        buttonText="Cotizar Proyecto"
+        pageName="Proyectos"
+      />
+
     </div>
   );
 }
+

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import Seo from '../components/Seo';
+import Cta from '../components/Cta';
 import './Blog.css';
 
 export default function Blog() {
@@ -85,7 +86,7 @@ export default function Blog() {
         url="/blog"
       />
 
-      <div className="container relative-z text-center" style={{ marginBottom: '60px' }}>
+      <section className="blog-hero hero-section-premium container relative-z text-center">
         <div className="hero-badge-glass process-badge">
            <span className="live-dot-pulse"></span> BitOne Journal
         </div>
@@ -95,7 +96,8 @@ export default function Blog() {
         <p className="hero-subtitle centered">
           Nuestra visión documentada. Investigaciones y análisis sobre el futuro del software.
         </p>
-      </div>
+      </section>
+
 
       <div className="container" style={{ marginBottom: '40px' }}>
          {/* EXPLORER UI */}
@@ -173,6 +175,14 @@ export default function Blog() {
           </>
         )}
       </div>
+
+      <Cta 
+        title="¿Te gusta nuestra visión técnica?"
+        description="Llevamos el conocimiento del diario a la práctica de tu negocio. Suscríbete o contáctanos para una asesoría."
+        buttonText="Suscribirse / Contacto"
+        pageName="Blog"
+      />
+
     </div>
   );
-}
+}

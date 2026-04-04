@@ -1,5 +1,6 @@
 import logoNormal from '../assets/LogoNormal.png';
 import Seo from '../components/Seo';
+import Cta from '../components/Cta';
 import './Nosotros.css';
 
 export default function Nosotros() {
@@ -20,18 +21,17 @@ export default function Nosotros() {
       />
 
       {/* HERO SECTION PREMIUM */}
-      <section className="about-hero-premium">
-        <div className="container relative-z">
-          <div className="hero-content-wrapper">
+      <section className="about-hero-premium hero-section-premium">
+        <div className="container relative-z text-center">
             <div className="hero-badge-glass">
-              <span className="live-dot"></span> Sobre nosotros
+              <span className="live-dot-pulse"></span> Sobre nosotros
             </div>
 
             <h1 className="display-title-premium">
               <span className="gradient-text">BitOne</span>
             </h1>
 
-            <p className="hero-subtitle">
+            <p className="hero-subtitle-centered">
               Ayudamos a negocios y emprendedores en México a modernizarse mediante <strong>soluciones digitales prácticas</strong>. Si tu operación aún depende de libretas, formatos manuales, hojas de Excel o sistemas obsoletos, estás en el lugar correcto para iniciar tu verdadera transformación.
             </p>
 
@@ -40,7 +40,6 @@ export default function Nosotros() {
               <span className="tech-pill">Análisis de Negocio</span>
               <span className="tech-pill">Crecimiento Escalable</span>
             </div>
-          </div>
         </div>
       </section>
 
@@ -95,6 +94,13 @@ export default function Nosotros() {
         </div>
       </section>
 
+      <Cta 
+        title="¿Quieres conocer nuestra metodología?"
+        description="Agenda una llamada estratégica con nuestros ingenieros y descubre cómo optimizar tu operación."
+        buttonText="Hablar con un Experto"
+        pageName="Nosotros"
+      />
+
     </div>
   );
-}
+}

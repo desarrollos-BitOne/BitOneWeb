@@ -4,9 +4,10 @@
   background-color: #020617; /* Azul profundo de la imagen */
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   overflow: hidden;
-  padding: 140px 20px 80px;
+  padding: 150px 20px 80px;
 }
 
 /* Luces de ambiente (Glows) */
@@ -32,14 +33,16 @@
 
 /* --- BLOQUE DE TEXTO --- */
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   background: rgba(0, 242, 254, 0.1);
   border: 1px solid rgba(0, 242, 254, 0.2);
   padding: 8px 18px;
   border-radius: 50px;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: max-content;
 }
 
 .badge-text {
@@ -158,6 +161,7 @@
 
 /* Live Dot Pulse para Badge */
 .live-dot-pulse {
+  display: inline-block;
   width: 8px;
   height: 8px;
   background: #00f2fe;

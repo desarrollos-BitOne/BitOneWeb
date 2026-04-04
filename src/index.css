@@ -135,3 +135,81 @@ main {
   transform: translateY(-3px);
   box-shadow: 0 15px 25px -5px rgba(0, 242, 254, 0.5);
 }
+
+/* UTILIDADES DE ALINEACIÓN */
+.text-center {
+  text-align: center !important;
+}
+
+.centered {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* =========================================
+   5. PREMIUM HERO SYSTEM (GLOBAL SYMMETRY)
+   ========================================= */
+.hero-section-premium {
+  padding: 150px 20px 80px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+}
+
+.hero-badge-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  margin: 0 auto 30px;
+  width: max-content;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.live-dot-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--bitone-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--bitone-cyan);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+
+.display-title-premium {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  letter-spacing: -1.5px;
+  color: white;
+}
+
+.hero-subtitle-centered {
+  font-size: 1.25rem;
+  color: var(--bitone-text-gray);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 2;
+}
+

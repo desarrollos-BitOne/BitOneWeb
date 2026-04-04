@@ -1,8 +1,10 @@
 .proyectos-page {
   background: var(--bitone-dark);
   min-height: 100vh;
-  padding-top: 140px;
 }
+
+/* El Hero utiliza .hero-section-premium globalmente */
+
 
 .proyectos-showcase-list {
   display: flex;

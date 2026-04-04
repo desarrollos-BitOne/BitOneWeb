@@ -1,7 +1,7 @@
 import React from 'react';
 import Seo from '../components/Seo';
+import Cta from '../components/Cta';
 import './Proceso.css';
-import CtaFooter from '../components/CtaFooter';
 
 export default function Proceso() {
   const steps = [
@@ -45,7 +45,7 @@ export default function Proceso() {
         url="/como-trabajamos"
       />
       
-      <section className="process-hero">
+      <section className="process-hero hero-section-premium">
         <div className="container relative-z text-center">
           <div className="hero-badge-glass process-badge">
             <span className="live-dot-pulse"></span> Metodología BitOne
@@ -84,7 +84,13 @@ export default function Proceso() {
         </div>
       </section>
 
-      <CtaFooter />
+      <Cta 
+        title="¿Listo para iniciar el Paso 01?"
+        description="Realiza hoy un diagnóstico técnico sin costo y descubre el potencial de digitalización de tu empresa."
+        buttonText="Empezar Auditoría"
+        pageName="Proceso"
+      />
     </div>
   );
 }
+

@@ -1,9 +1,10 @@
 .blog-page {
   background: var(--bitone-dark);
   min-height: 100vh;
-  padding-top: 150px;
   padding-bottom: 100px;
 }
+
+/* El Hero utiliza .hero-section-premium globalmente */
 
 .post-loading-fallback, .no-posts-found {
   text-align: center;

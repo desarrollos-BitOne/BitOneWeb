@@ -3,6 +3,7 @@ import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import Cta from '../components/Cta';
 import { trackEvent } from '../components/Analytics';
 import './Servicios.css';
 
@@ -18,60 +19,73 @@ export default function Servicios() {
 
   return (
     <div className="services-page">
-      <Seo 
-        title="Desarrollo de Apps, E-commerce y Sistemas ERP" 
+      <Seo
+        title="Desarrollo de Apps, E-commerce y Sistemas ERP"
         description="Ingeniería de software adaptada a pymes. Desde páginas web corporativas hasta sistemas de control logístico e integraciones de bases de datos avanzadas en Sinaloa."
         url="/servicios"
       />
-      <section className="services-hero">
-        <div className="container">
-          <h1 className="gradient-text">Soluciones que impulsan tu Negocio</h1>
-          <p>Globalizamos tecnología para ofrecerte resultados, no solo código.</p>
+
+      {/* PREMIUM HERO */}
+      <section className="service-hero-premium hero-section-premium">
+        <div className="container relative-z text-center">
+          <div className="hero-badge-glass">
+            <span className="live-dot-pulse"></span> Nuestros Servicios
+          </div>
+          <h1 className="display-title-premium" autoFocus>
+            Ingeniería de <span className="gradient-text">Impacto</span>
+          </h1>
+          <p className="hero-subtitle-centered">
+            Globalizamos tecnología para ofrecerte resultados, no solo código. Transformamos procesos complejos en experiencias digitales simples y potentes.
+          </p>
         </div>
       </section>
 
+      {/* ZIGZAG SERVICES LIST */}
       <section className="services-list-zigzag">
         <div className="container">
           {services.map((service, index) => (
             <div key={service._id} className={`zigzag-item ${index % 2 === 0 ? 'row' : 'row-reverse'}`}>
-              
+
+              {/* Background Watermark */}
+              <div className="watermark-number">0{index + 1}</div>
+
               <div className="zigzag-visual">
+                <div className="icon-glow-bg"></div>
                 {service.icon?.asset && (
                   <div className="icon-main-wrapper">
-                    <img 
-                      src={urlFor(service.icon).width(600).url()} 
-                      alt={service.title} 
+                    <img
+                      src={urlFor(service.icon).width(600).url()}
+                      alt={service.title}
                     />
                   </div>
                 )}
               </div>
-              
+
               <div className="zigzag-text">
-                <span className="service-number">0{index + 1}</span>
+                <span className="service-summary-premium">{service.summary}</span>
                 <h2>{service.title}</h2>
-                <p className="service-summary-bold">{service.summary}</p>
-                
+
                 <div className="service-rich-text">
                   {service.description && <PortableText value={service.description} />}
                 </div>
-                
+
                 {service.actionUrl?.startsWith('/') ? (
-                  <Link 
-                    to={service.actionUrl} 
+                  <Link
+                    to={service.actionUrl}
                     className="btn-primary"
                     onClick={() => trackEvent('Services', 'Click', service.title)}
                   >
-                    Saber más
+                    Detalles Técnicos
                   </Link>
                 ) : (
-                  <a 
-                    href={service.actionUrl || "mailto:atencionclientes@bit-one.net"} 
-                    className="btn-primary" 
-                    target="_blank" 
+                  <a
+                    href={service.actionUrl || "mailto:atencionclientes@bit-one.net"}
+                    className="btn-primary"
+                    target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent('Services', 'External Click', service.title)}
                   >
-                    Saber más
+                    Detalles Técnicos
                   </a>
                 )}
               </div>
@@ -80,6 +94,16 @@ export default function Servicios() {
           ))}
         </div>
       </section>
+
+      {/* GLOBAL CTA */}
+      <Cta
+        title="¿Listo para escalar?"
+        description="No construimos sitios web, construimos herramientas de crecimiento. Agenda una consultoría técnica gratuita hoy mismo."
+        buttonText="Iniciar Proyecto"
+        pageName="Servicios"
+      />
     </div>
+
+
   );
 }
