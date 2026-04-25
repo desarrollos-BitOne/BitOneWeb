@@ -89,9 +89,10 @@
 }
 
 .p-logo {
-  height: 60px;
+  height: auto;
+  max-height: 70px;
   width: auto;
-  max-width: 200px;
+  max-width: 190px;
   object-fit: contain;
   filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
 }
