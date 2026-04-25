@@ -63,7 +63,16 @@ export default function Navbar() {
         <ul className="nav-links desktop-only">
           {navLinks.map((link) => (
             <li key={link.path}>
-              <Link to={link.path}>{link.label}</Link>
+              <Link 
+                to={link.path}
+                onClick={() => {
+                  if (location.pathname === link.path) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -90,7 +99,15 @@ export default function Navbar() {
           <ul className="mobile-nav-links">
             {navLinks.map((link) => (
               <li key={link.path}>
-                <Link to={link.path} onClick={() => setIsOpen(false)}>
+                <Link 
+                  to={link.path} 
+                  onClick={() => {
+                    setIsOpen(false);
+                    if (location.pathname === link.path) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                >
                   {link.label}
                 </Link>
               </li>

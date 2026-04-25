@@ -5,8 +5,13 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Cuando la ruta cambie, forzamos al navegador a subir instantáneamente
-    window.scrollTo(0, 0);
+    // Usamos setTimeout para asegurar que el scroll ocurra después de cualquier
+    // restauración automática del navegador, especialmente al volver atrás.
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;
