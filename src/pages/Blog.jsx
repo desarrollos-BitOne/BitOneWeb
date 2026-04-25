@@ -35,9 +35,9 @@ export default function Blog() {
     const categoryFilter = activeCategory !== "Todas" ? `&& "${activeCategory}" in categories[]->title` : "";
     const searchFilter = searchTerm.trim() !== "" ? `&& title match "*${searchTerm}*"` : "";
     
-    const countQuery = `count(*[_type == "post" ${categoryFilter} ${searchFilter}])`;
+    const countQuery = `count(*[_type == "post" && visibility == "public" && isApproved == true ${categoryFilter} ${searchFilter}])`;
     
-    const fetchQuery = `*[_type == "post" ${categoryFilter} ${searchFilter}] | order(publishedAt desc)[0...$limit] {
+    const fetchQuery = `*[_type == "post" && visibility == "public" && isApproved == true ${categoryFilter} ${searchFilter}] | order(publishedAt desc)[0...$limit] {
       title,
       slug,
       mainImage,

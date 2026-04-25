@@ -13,7 +13,7 @@ export default function BlogPost() {
 
   useEffect(() => {
     // 1) Fetch main post
-    const query = `*[_type == "post" && slug.current == $slug][0] {
+    const query = `*[_type == "post" && slug.current == $slug && isApproved == true][0] {
       ...,
       "authorName": author->name,
       "categoriesList": categories[]->title
@@ -23,7 +23,7 @@ export default function BlogPost() {
       .catch(console.error);
 
     // 2) Fetch recent 3 posts for the sidebar (excluding the current one)
-    const recentQuery = `*[_type == "post" && slug.current != $slug] | order(publishedAt desc)[0...3] {
+    const recentQuery = `*[_type == "post" && visibility == "public" && isApproved == true && slug.current != $slug] | order(publishedAt desc)[0...3] {
       title,
       slug,
       publishedAt

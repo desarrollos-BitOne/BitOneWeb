@@ -49,6 +49,25 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'visibility',
+      title: 'Visibilidad',
+      type: 'string',
+      initialValue: 'public',
+      options: {
+        list: [
+          {title: 'Público', value: 'public'},
+          {title: 'Interno', value: 'internal'},
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
+      name: 'isApproved',
+      title: 'Aprobado para publicación',
+      type: 'boolean',
+      initialValue: false,
+    }),
   ],
 
   preview: {

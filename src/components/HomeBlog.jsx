@@ -9,7 +9,7 @@ export default function HomeBlog() {
 
   useEffect(() => {
     // 1. Fetch de los últimos 15 artículos de Sanity (Para asegurar frescura y aleatoriedad sin jalar toda la DB)
-    const query = `*[_type == "post"] | order(publishedAt desc)[0...15] {
+    const query = `*[_type == "post" && visibility == "public" && isApproved == true] | order(publishedAt desc)[0...15] {
       title,
       slug,
       mainImage,
