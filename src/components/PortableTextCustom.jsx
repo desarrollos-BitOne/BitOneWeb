@@ -37,6 +37,11 @@ export const portableTextComponents = {
     ),
     normal: ({ children }) => <p className="portable-p">{children}</p>,
   },
+  list: {
+    bullet: ({ children }) => <ul className="portable-list">{children}</ul>,
+    number: ({ children }) => <ol className="portable-list">{children}</ol>,
+  },
+  listItem: ({ children }) => <li className="portable-list-item">{children}</li>,
   marks: {
     link: ({ children, value }) => {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;

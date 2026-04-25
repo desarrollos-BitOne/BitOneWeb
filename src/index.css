@@ -9,7 +9,7 @@
   --bitone-pink: #ff1b6b;
   --bitone-dark: #0f172a;
   --bitone-light: #f8fafc;
-  --bitone-text-gray: #64748b;
+  --bitone-text-gray: #cbd5e1;
   
   /* Espaciados y transiciones */
   --section-padding: 100px;
@@ -212,4 +212,4 @@ main {
   position: relative;
   z-index: 2;
 }
-
+

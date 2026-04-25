@@ -55,7 +55,7 @@
 }
 
 .footer-cta p {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 1rem;
   margin-bottom: 0;
   /* Sin margen inferior */
@@ -85,7 +85,7 @@
 }
 
 .footer-description {
-  color: #94a3b8;
+  color: #cbd5e1;
   line-height: 1.5;
   max-width: 320px;
   font-size: 0.95rem;
@@ -110,7 +110,7 @@
 }
 
 .footer-links a {
-  color: #94a3b8;
+  color: #cbd5e1;
   text-decoration: none;
   transition: 0.3s;
   font-size: 0.95rem;
@@ -152,7 +152,7 @@
 }
 
 .footer-location {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 0.85rem;
   margin-top: 15px;
 }
@@ -162,7 +162,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 20px 0;
   text-align: center;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.85rem;
 }
 

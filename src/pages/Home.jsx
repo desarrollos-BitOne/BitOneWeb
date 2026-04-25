@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <div className="home-modern">
       <Seo
-        title="Consultoría y Desarrollo de Software Premium"
+        title="Consultoría y Desarrollo de Software"
         description="Transformamos empresas operativas en negocios digitales eficientes en Los Mochis. Desarrollo de software a medida, e-commerce y consultoría tecnológica premium para pymes."
         url=""
       />

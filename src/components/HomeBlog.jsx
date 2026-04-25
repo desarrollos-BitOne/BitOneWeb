@@ -67,7 +67,7 @@ export default function HomeBlog() {
           <h2 className="display-title-premium" style={{ fontSize: '3rem', margin: '0' }}>
             Explora nuestros <span className="gradient-text">Últimos Artículos</span>
           </h2>
-          <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginTop: '15px' }}>
+          <p style={{ color: '#cbd5e1', fontSize: '1.1rem', marginTop: '15px' }}>
             Descubre guías prácticas, tendencias, noticias relevantes y reflexiones sobre nuestra industria.
           </p>
         </div>

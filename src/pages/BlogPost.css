@@ -57,7 +57,7 @@
 
 .back-to-blog {
   display: inline-block;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;
@@ -137,14 +137,31 @@
   clear: both; /* Protege los títulos de quedar montados al lado de las fotos flotantes */
 }
 
-.portable-h2 { font-size: 2rem; }
-.portable-h3 { font-size: 1.5rem; color: #e2e8f0; }
+.portable-h2 { font-size: 2rem; color: #f8fafc; }
+.portable-h3 { font-size: 1.5rem; color: #f1f5f9; }
 
 .portable-p {
-  color: #94a3b8;
+  color: #cbd5e1; /* Incrementamos brillo de #cbd5e1 a #cbd5e1 para mejor legibilidad */
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 25px;
+}
+
+/* Soporte para listas */
+.portable-list {
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.portable-list-item {
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.portable-list-item::marker {
+  color: #00f2fe; /* Balas de color neón para consistencia */
 }
 
 .portable-link {
@@ -215,7 +232,7 @@
 
 .portable-image-caption {
   text-align: center;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.9rem;
   margin-top: 15px;
   font-style: italic;
@@ -267,7 +284,7 @@
 }
 
 .sidebar-cta-widget p {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 0.95rem;
   margin-bottom: 25px;
   line-height: 1.6;
@@ -322,7 +339,7 @@
 }
 
 .recent-post-mini span {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.8rem;
 }
 
