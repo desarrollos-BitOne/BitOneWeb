@@ -18,7 +18,7 @@ export default function Blog() {
 
   // Inicializar todas las categorías disponibles en la CMS
   useEffect(() => {
-    client.fetch(`*[_type == "category"]{ title }`)
+    client.fetch(`*[_type == "category" && count(*[_type == "post" && references(^._id) && visibility == "public" && isApproved == true]) > 0]{ title }`)
       .then((data) => {
         // Extraemos solo el string del titulo
         const cats = data.map(c => c.title).filter(Boolean);
