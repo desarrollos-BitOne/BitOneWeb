@@ -5,8 +5,11 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Usamos setTimeout para asegurar que el scroll ocurra después de cualquier
-    // restauración automática del navegador, especialmente al volver atrás.
+    // Desactivamos la restauración automática del navegador para tener control total
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
