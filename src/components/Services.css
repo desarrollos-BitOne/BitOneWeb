@@ -62,10 +62,12 @@
   background: rgba(30, 41, 59, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 32px;
-  padding: 50px 40px;
+  padding: 40px; /* Reducido un poco para dar espacio a la visual */
   overflow: hidden;
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card-glass:hover {
@@ -74,24 +76,38 @@
   background: rgba(30, 41, 59, 0.6);
 }
 
-.icon-wrapper {
-  width: 70px;
-  height: 70px;
-  background: rgba(0, 242, 254, 0.1);
+.service-card-visual {
+  width: 100%;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(0, 242, 254, 0.2);
+  margin-bottom: 25px;
+  position: relative;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.4); /* Fondo de cristal recuperado */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px; /* Espacio de protagonismo */
 }
 
-.service-icon-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  /* Efecto para que iconos oscuros se vean blancos en el tema oscuro */
-  filter: brightness(0) invert(1); 
+.service-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px; /* Redondeo de la ilustración interna */
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 15px 30px rgba(0, 242, 254, 0.2));
+}
+
+.service-card-glass:hover .service-visual-img {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.service-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card-glass h3 {
@@ -116,6 +132,7 @@
   color: #cbd5e1;
   line-height: 1.7;
   margin-bottom: 30px;
+  flex: 1; /* Empuja el botón hacia el final de la tarjeta */
 }
 
 /* --- BADGES --- */
@@ -191,6 +208,18 @@
 }
 
 @media (max-width: 768px) {
-  .section-header-center h2 { font-size: 2.5rem; }
-  .service-card-glass { padding: 40px 30px; }
+  .services-section-dark { padding: 60px 25px; } /* Más aire lateral */
+  .section-header-center h2 { font-size: 2.2rem; }
+  
+  .service-card-glass { 
+    padding: 30px 25px; 
+    border-radius: 24px;
+    max-width: 400px; /* Evita que sean "muy anchas" */
+    margin: 0 auto;   /* Centrado horizontal */
+  }
+  
+  .service-card-visual { height: 160px; margin-bottom: 20px; }
+  
+  .service-card-glass h3 { font-size: 1.6rem; }
+  .service-subtitle { font-size: 0.95rem; }
 }

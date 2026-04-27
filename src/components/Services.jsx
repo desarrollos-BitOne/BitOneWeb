@@ -22,19 +22,17 @@ export default function Services({ services }) {
         <div className="services-spacious-grid">
           {displayServices.map((ser) => (
             <div key={ser._id} className="service-card-glass large-card">
-              <div className="service-card-content">
-                <div className="icon-wrapper">
-                  {ser.icon?.asset ? (
-                    <img
-                      src={urlFor(ser.icon).width(120).url()}
-                      alt={ser.title}
-                      className="service-icon-img"
-                    />
-                  ) : (
-                    <span className="default-icon"></span>
-                  )}
-                </div>
+              <div className="service-card-visual">
+                {ser.icon?.asset && (
+                  <img
+                    src={urlFor(ser.icon).width(800).url()}
+                    alt={ser.title}
+                    className="service-visual-img"
+                  />
+                )}
+              </div>
 
+              <div className="service-card-content">
                 <h3>{ser.title}</h3>
                 {ser.subtitle && <h4 className="service-subtitle">{ser.subtitle}</h4>}
                 <p>{ser.summary}</p>

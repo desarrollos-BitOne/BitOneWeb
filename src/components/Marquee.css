@@ -68,7 +68,7 @@
 }
 
 @media (max-width: 768px) {
-  .marquee-section-v2 { padding: 40px 0; }
-  .marquee-item { padding: 0 35px; width: 160px; }
-  .marquee-item img { height: auto; max-height: 40px; max-width: 110px; }
+  .marquee-section-v2 { padding: 45px 0; }
+  .marquee-item { padding: 0 35px; width: 200px; }
+  .marquee-item img { height: auto; max-height: 55px; max-width: 140px; }
 }

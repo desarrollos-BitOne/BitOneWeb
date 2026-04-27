@@ -53,15 +53,14 @@ export default function Servicios() {
           {services.map((service, index) => (
             <div key={service._id} className={`zigzag-item ${index % 2 === 0 ? 'row' : 'row-reverse'}`}>
 
-              {/* Background Watermark */}
-              <div className="watermark-number">0{index + 1}</div>
-
               <div className="zigzag-visual">
+                {/* El número ahora vive aquí, detrás de la imagen */}
+                <div className="watermark-number">0{index + 1}</div>
                 <div className="icon-glow-bg"></div>
                 {service.icon?.asset && (
                   <div className="icon-main-wrapper">
                     <img
-                      src={urlFor(service.icon).width(600).url()}
+                      src={urlFor(service.icon).width(1200).url()}
                       alt={service.title}
                     />
                   </div>
