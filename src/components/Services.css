@@ -77,31 +77,43 @@
 }
 
 .service-card-visual {
-  width: 100%;
+  width: 90%; /* Ya no ocupa todo el ancho, se ve más equilibrado */
+  max-width: 320px;
   height: 200px;
+  margin: 0 auto 25px; /* Centrado y con margen inferior */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 25px;
   position: relative;
-  border-radius: 24px;
-  background: rgba(15, 23, 42, 0.4); /* Fondo de cristal recuperado */
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 25px; /* Espacio de protagonismo */
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.3); /* Un poco más sutil */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px;
+  overflow: hidden;
+}
+
+.illustration-box {
+  height: 100%;
+  width: auto;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .service-visual-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px; /* Redondeo de la ilustración interna */
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: drop-shadow(0 15px 30px rgba(0, 242, 254, 0.2));
+  width: 95%; /* Ocupa más espacio dentro de la caja blanca */
+  height: 95%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
 }
 
 .service-card-glass:hover .service-visual-img {
-  transform: scale(1.05) rotate(1deg);
+  transform: scale(1.08);
 }
 
 .service-card-content {

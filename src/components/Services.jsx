@@ -24,11 +24,13 @@ export default function Services({ services }) {
             <div key={ser._id} className="service-card-glass large-card">
               <div className="service-card-visual">
                 {ser.icon?.asset && (
-                  <img
-                    src={urlFor(ser.icon).width(800).url()}
-                    alt={ser.title}
-                    className="service-visual-img"
-                  />
+                  <div className="illustration-box">
+                    <img
+                      src={urlFor(ser.icon).width(800).url()}
+                      alt={ser.title}
+                      className="service-visual-img"
+                    />
+                  </div>
                 )}
               </div>
 
