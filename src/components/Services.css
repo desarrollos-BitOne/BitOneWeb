@@ -94,8 +94,8 @@
 }
 
 .illustration-box {
+  width: 100%;
   height: 100%;
-  width: auto;
   background: white;
   border-radius: 20px;
   display: flex;
@@ -106,9 +106,9 @@
 }
 
 .service-visual-img {
-  width: 95%; /* Ocupa más espacio dentro de la caja blanca */
-  height: 95%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
