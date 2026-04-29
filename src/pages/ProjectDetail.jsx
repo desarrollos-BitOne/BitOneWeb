@@ -25,7 +25,7 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="loading-container" style={{ padding: '10rem 0', textCenter: 'center' }}>
+      <div className="loading-container" style={{ padding: '10rem 0', textAlign: 'center' }}>
         <div className="live-dot-pulse"></div> Cargando proyecto...
       </div>
     );
@@ -75,7 +75,15 @@ export default function ProjectDetail() {
             {project.content ? (
               <PortableText value={project.content} components={portableTextComponents} />
             ) : (
-              <p>{project.longDescription || project.workDescription}</p>
+              <div className="project-fallback-view">
+                <h2 className="fallback-title">Visión General</h2>
+                <p className="fallback-text">{project.longDescription || project.workDescription}</p>
+                
+                <div className="status-badge-minimal">
+                  <span className="live-dot-pulse"></span>
+                  Documentación completa en proceso
+                </div>
+              </div>
             )}
           </div>
 
