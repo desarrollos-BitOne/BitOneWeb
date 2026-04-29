@@ -42,6 +42,7 @@ export default function Navbar() {
     { path: '/', label: 'Inicio' },
     { path: '/como-trabajamos', label: 'Cómo Trabajamos' },
     { path: '/servicios', label: 'Servicios' },
+    { path: '/proyectos', label: 'Proyectos' },
     { path: '/nosotros', label: 'Nosotros' },
     { path: '/blog', label: 'Blog' },
   ];
