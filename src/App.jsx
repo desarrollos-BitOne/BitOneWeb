@@ -10,6 +10,8 @@ import Proyectos from './pages/Proyectos';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Proceso from './pages/Proceso';
+import ProjectDetail from './pages/ProjectDetail';
+import ServiceDetail from './pages/ServiceDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
 import logoSolo from './assets/LogoSoloMonocromatico.png';
@@ -27,8 +29,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/servicios" element={<Servicios />} />
+            <Route path="/servicios/:slug" element={<ServiceDetail />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/proyectos" element={<Proyectos />} />
+            <Route path="/proyectos/:slug" element={<ProjectDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/como-trabajamos" element={<Proceso />} />

@@ -20,9 +20,11 @@ export default function Home() {
     const query = `{
       "projects": *[_type == "project" && featured == true] | order(date desc)[0..3]{
         _id, 
-        name, 
-        "cat": category->title, 
-        logo, 
+        title,
+        "name": client->name,
+        "slug": slug.current,
+        "cat": client->category->title, 
+        "logo": client->logo, 
         image, 
         workDescription,
         date
@@ -30,6 +32,7 @@ export default function Home() {
       "services": *[_type == "service"] | order(_createdAt asc)[0..2]{
         _id,
         title,
+        "slug": slug.current,
         subtitle,
         summary,
         icon,
@@ -41,9 +44,14 @@ export default function Home() {
         authorRole,
         quote,
         project->{
-          name,
-          logo
+          "name": client->name,
+          "logo": client->logo
         }
+      },
+      "clients": *[_type == "client" && featured == true]{
+        _id,
+        name,
+        logo
       }
     }`;
 
@@ -83,7 +91,7 @@ export default function Home() {
       {data && <Portfolio projects={data.projects} />}
       {data && <Testimonials testimonials={data.testimonials} />}
       <HomeBlog />
-      {data && <Marquee projects={data.projects} />}
+      {data && <Marquee clients={data.clients} />}
       <Cta
         title="No te quedes rezagado en el pasado digital"
         description="Ya conoces a BitOne. Es hora de llevar tus procesos al siguiente nivel con software limpio, moderno y accesible."

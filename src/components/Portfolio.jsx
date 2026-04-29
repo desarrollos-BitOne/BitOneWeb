@@ -39,6 +39,7 @@ export default function Portfolio({ projects }) {
                 <div className="card-header">
                   <div className="client-identity">
                     <h3 className="client-name">{proj.name}</h3>
+                    <span className="project-card-title">{proj.title}</span>
                     <span className="category-tag">{proj.cat || 'SOFTWARE'}</span>
                   </div>
                   {proj.date && (
@@ -51,9 +52,9 @@ export default function Portfolio({ projects }) {
                 <div className="card-main-content">
                   <div className="client-logo-box">
                     {proj.logo ? (
-                      <img src={urlFor(proj.logo).width(300).url()} alt={proj.name} />
+                      <img src={urlFor(proj.logo).width(300).url()} alt={proj.name || 'Cliente'} />
                     ) : (
-                      <span className="clean-logo-fallback">{proj.name.substring(0, 2).toUpperCase()}</span>
+                      <span className="clean-logo-fallback">{(proj.name || 'B1').substring(0, 2).toUpperCase()}</span>
                     )}
                   </div>
                   
@@ -63,6 +64,11 @@ export default function Portfolio({ projects }) {
                         ? (proj.workDescription.length > 100 ? proj.workDescription.substring(0, 100) + '...' : proj.workDescription)
                         : "Desarrollo de solución tecnológica a medida."}
                     </p>
+                    {proj.slug && (
+                      <Link to={`/proyectos/${proj.slug}`} className="card-link-saber-mas">
+                        Saber más →
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

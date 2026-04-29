@@ -1,14 +1,14 @@
 import { urlFor } from '../lib/sanity';
 import './Marquee.css';
 
-export default function Marquee({ projects }) {
-  // Filtramos solo los proyectos que tienen logo
-  const displayProjects = projects?.filter(p => p.logo) || [];
+export default function Marquee({ clients }) {
+  // Filtramos solo los clientes que tienen logo
+  const displayClients = clients?.filter(c => c.logo) || [];
   
   // Triplicamos para asegurar que no haya huecos en la animación infinita
-  const marqueeItems = [...displayProjects, ...displayProjects, ...displayProjects];
+  const marqueeItems = [...displayClients, ...displayClients, ...displayClients];
 
-  if (displayProjects.length === 0) return null;
+  if (displayClients.length === 0) return null;
 
   return (
     <section className="marquee-section-v2">

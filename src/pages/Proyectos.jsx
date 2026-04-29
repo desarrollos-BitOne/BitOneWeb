@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
@@ -11,9 +12,11 @@ export default function Proyectos() {
     // Consulta todos los proyectos y encuentra el testimonio asociado (si lo hay)
     client.fetch(`*[_type == "project"] | order(date desc){
       _id,
-      name,
-      "cat": category->title,
-      logo,
+      title,
+      "name": client->name,
+      "slug": slug.current,
+      "cat": client->category->title,
+      "logo": client->logo,
       image,
       workDescription,
       longDescription,
@@ -62,25 +65,33 @@ export default function Proyectos() {
                   
                   {/* Foto de Portada (Si hay) */}
                   {proj.image && (
-                    <div className="proyecto-featured-image">
+                    <Link to={`/proyectos/${proj.slug}`} className="proyecto-featured-image">
                        <img src={urlFor(proj.image).height(600).url()} alt={proj.name} />
                        {displayDate && <span className="proyecto-date-badge">{displayDate}</span>}
-                    </div>
+                    </Link>
                   )}
 
                   <div className="proyecto-data-box">
                     <div className="proyecto-logo-flex">
                       {proj.logo ? (
-                         <img src={urlFor(proj.logo).height(80).url()} alt={`${proj.name} logo`} className="p-logo" />
+                         <img src={urlFor(proj.logo).height(80).url()} alt={`${proj.name || 'Cliente'} logo`} className="p-logo" />
                       ) : (
-                         <span className="company-text-fallback">{proj.name}</span>
+                         <span className="company-text-fallback">{proj.name || 'BitOne Project'}</span>
                       )}
                       <span className="category-tag">{proj.cat || 'Software Corporativo'}</span>
                     </div>
 
+                    <h3 className="proyecto-item-title">{proj.title}</h3>
+
                     <div className="work-desc-box">
                       <span className="work-desc-tag">Solución Implementada</span>
-                      <p className="work-desc">{proj.longDescription || proj.workDescription}</p>
+                      <p className="work-desc">{proj.workDescription}</p>
+                      
+                      {proj.slug && (
+                        <Link to={`/proyectos/${proj.slug}`} className="btn-saber-mas-proyecto">
+                          Saber más <span className="btn-arrow">→</span>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>

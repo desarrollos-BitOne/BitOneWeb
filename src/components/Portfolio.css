@@ -99,6 +99,14 @@
   letter-spacing: -0.5px;
 }
 
+.project-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
 .category-tag {
   background: rgba(0, 242, 254, 0.1);
   color: #00f2fe;
@@ -164,6 +172,21 @@
   font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
+  margin-bottom: 12px;
+}
+
+.card-link-saber-mas {
+  display: inline-block;
+  color: #00f2fe;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.card-link-saber-mas:hover {
+  color: white;
+  transform: translateX(5px);
 }
 
 @media (max-width: 768px) {

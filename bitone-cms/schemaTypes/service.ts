@@ -12,6 +12,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug (URL)',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      description: 'Identificador único para la URL del servicio (ej. desarrollo-web).',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'subtitle',
       title: 'Subtítulo / Gancho (Hook)',
       type: 'string',
