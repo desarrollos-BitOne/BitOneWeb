@@ -34,7 +34,7 @@ export default function Home() {
         title,
         "slug": slug.current,
         subtitle,
-        summary,
+        summaryHome,
         icon,
         actionUrl
       },
