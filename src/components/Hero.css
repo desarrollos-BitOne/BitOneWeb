@@ -194,9 +194,9 @@
 }
 
 @keyframes typing-fade {
-  0% { opacity: 0; transform: translateY(10px) scale(0.98); filter: blur(4px); }
-  15%, 85% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-  95%, 100% { opacity: 0; transform: translateY(-10px) scale(1.02); filter: blur(4px); }
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  15%, 85% { opacity: 1; transform: translateY(0) scale(1); }
+  95%, 100% { opacity: 0; transform: translateY(-10px) scale(1.02); }
 }
 
 /* Live Dot Pulse para Badge */

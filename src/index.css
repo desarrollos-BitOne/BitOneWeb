@@ -72,16 +72,19 @@ main {
   margin: 0 auto;
 }
 
-/* MARCA DE AGUA GLOBAL */
-.global-watermark {
+/* MARCA DE AGUA GLOBAL COMO FONDO CSS (No afecta LCP) */
+body::before {
+  content: '';
   position: fixed;
   top: 15%;
   right: -5%;
   width: 900px;
   height: 900px;
-  object-fit: contain;
+  background-image: url('./assets/LogoSoloMonocromatico.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   opacity: 0.03;
-  z-index: 0;
+  z-index: -1;
   transform: rotate(15deg);
   pointer-events: none;
 }
@@ -90,8 +93,8 @@ main {
   :root {
     --section-padding: 60px;
   }
-  .global-watermark {
-    display: none; /* Ocultamos la marca de agua en móviles para que no afecte el LCP */
+  body::before {
+    display: none; /* Ocultamos la marca de agua en móviles */
   }
 }
 

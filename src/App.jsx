@@ -23,16 +23,6 @@ export default function App() {
       <ScrollToTop />
       <Analytics />
       <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
-        <img 
-          src={logoSolo} 
-          alt="" 
-          className="global-watermark" 
-          width="400" 
-          height="400" 
-          loading="lazy" 
-          fetchpriority="low" 
-          decoding="async" 
-        />
         <Navbar />
         <main style={{ flex: 1 }}>
           <Routes>

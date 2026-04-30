@@ -31,7 +31,14 @@ export default function Portfolio({ projects }) {
             <div key={proj._id} className="modern-project-card">
               <div className="project-background">
                 {proj.image && (
-                  <img src={urlFor(proj.image).width(1000).url()} alt="" />
+                  <img 
+                    src={urlFor(proj.image).width(800).url()} 
+                    alt="" 
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="450"
+                  />
                 )}
               </div>
               
@@ -52,7 +59,14 @@ export default function Portfolio({ projects }) {
                 <div className="card-main-content">
                   <div className="client-logo-box">
                     {proj.logo ? (
-                      <img src={urlFor(proj.logo).width(300).url()} alt={proj.name || 'Cliente'} />
+                      <img 
+                        src={urlFor(proj.logo).width(150).url()} 
+                        alt={proj.name || 'Cliente'} 
+                        loading="lazy"
+                        decoding="async"
+                        width="80"
+                        height="80"
+                      />
                     ) : (
                       <span className="clean-logo-fallback">{(proj.name || 'B1').substring(0, 2).toUpperCase()}</span>
                     )}
