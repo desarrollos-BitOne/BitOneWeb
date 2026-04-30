@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '../components/PortableTextCustom';
 import Seo from '../components/Seo';
+import LoadingScreen from '../components/LoadingScreen';
 import './BlogPost.css';
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [recentPosts, setRecentPosts] = useState([]);
 
@@ -34,15 +36,11 @@ export default function BlogPost() {
   }, [slug]);
 
   if (!post) {
-    return (
-      <div className="blog-post-loading">
-        <div className="live-dot-pulse"></div> Cargando contenido...
-      </div>
-    );
+    return <LoadingScreen message="Preparando publicación..." />;
   }
 
   return (
-    <article className="post-detail-page">
+    <article className="post-detail-page fade-in">
       <Seo 
         title={post.title} 
         description={post.excerpt}
@@ -63,7 +61,9 @@ export default function BlogPost() {
         )}
         
         <div className="post-hero-content container">
-          <Link to="/blog" className="back-to-blog">← Directorio Tech</Link>
+          <button onClick={() => navigate(-1)} className="back-to-blog" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+            ← Directorio Tech
+          </button>
           
           {post.categoriesList && post.categoriesList.length > 0 && (
             <div className="post-tags-flex">

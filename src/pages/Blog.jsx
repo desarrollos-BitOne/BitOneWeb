@@ -1,20 +1,28 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
 import './Blog.css';
+let memoryCache = {
+  posts: null,
+  total: 0,
+  searchTerm: "",
+  activeCategory: "Todas",
+  limit: 9,
+  scrollPos: 0
+};
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(memoryCache.posts || []);
   const [categories, setCategories] = useState([]);
   
   // Estados del Motor de Exploración
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("Todas");
-  const [limit, setLimit] = useState(9); // Iniciamos con 9 artículos
-  const [totalPostsCount, setTotalPostsCount] = useState(0); // Para saber si ocultamos el botón de "Cargar más"
-  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(memoryCache.searchTerm);
+  const [activeCategory, setActiveCategory] = useState(memoryCache.activeCategory);
+  const [limit, setLimit] = useState(memoryCache.limit); // Iniciamos con 9 artículos
+  const [totalPostsCount, setTotalPostsCount] = useState(memoryCache.total || 0);
+  const [loading, setLoading] = useState(!memoryCache.posts);
 
   // Inicializar todas las categorías disponibles en la CMS
   useEffect(() => {
@@ -29,7 +37,15 @@ export default function Blog() {
 
   // Motor principal (reacciona a busqueda, categoria o limite)
   useEffect(() => {
-    setLoading(true);
+    // Si tenemos los datos exactos en caché, no mostramos loading
+    const isCached = memoryCache.posts && 
+                     memoryCache.searchTerm === searchTerm && 
+                     memoryCache.activeCategory === activeCategory &&
+                     memoryCache.limit === limit;
+
+    if (!isCached) {
+      setLoading(true);
+    }
     
     // Condicionales para GROQ
     const categoryFilter = activeCategory !== "Todas" ? `&& "${activeCategory}" in categories[]->title` : "";
@@ -55,6 +71,16 @@ export default function Blog() {
         setTotalPostsCount(count);
         setPosts(data);
         setLoading(false);
+        
+        // Actualizar caché
+        memoryCache = {
+           posts: data,
+           total: count,
+           searchTerm,
+           activeCategory,
+           limit,
+           scrollPos: memoryCache.scrollPos // mantener el scroll si existe
+        };
       })
       .catch(err => {
         console.error(err);
@@ -62,6 +88,30 @@ export default function Blog() {
       });
       
   }, [searchTerm, activeCategory, limit]);
+
+  // Restauración síncrona antes de pintar para evitar el "jump"
+  React.useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100); // Pequeño debounce para rendimiento
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);

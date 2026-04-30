@@ -2,7 +2,6 @@
    1. FUENTES Y VARIABLES GLOBALES
 ========================================= */
 
-
 :root {
   /* Paleta BitOne */
   --bitone-cyan: #00f2fe;
@@ -531,4 +530,84 @@ body::before {
     border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 40px;
   }
+}
+
+/* =========================================
+   7. PREMIUM LOADING & TRANSITIONS
+   ========================================= */
+
+.premium-loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, #1e293b 0%, var(--bitone-dark) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.bitone-logo-loader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.loader-text {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loading-message {
+  color: var(--bitone-text-gray);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.loader-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.loader-progress-inner {
+  width: 30%;
+  height: 100%;
+  background: var(--gradient-primary);
+  animation: progress-loading 2s ease-in-out infinite;
+}
+
+@keyframes progress-loading {
+  0% { transform: translateX(-100%); width: 30%; }
+  50% { width: 60%; }
+  100% { transform: translateX(400%); width: 30%; }
+}
+
+/* TRANSITION UTILITIES */
+.fade-in {
+  animation: fadeInEffect 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInEffect {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

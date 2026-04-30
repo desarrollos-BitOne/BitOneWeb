@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '../components/PortableTextCustom';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
+import LoadingScreen from '../components/LoadingScreen';
 import './ProjectDetail.css';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [project, setProject] = useState(null);
 
   useEffect(() => {
@@ -24,11 +26,7 @@ export default function ProjectDetail() {
   }, [slug]);
 
   if (!project) {
-    return (
-      <div className="loading-container" style={{ padding: '10rem 0', textAlign: 'center' }}>
-        <div className="live-dot-pulse"></div> Cargando proyecto...
-      </div>
-    );
+    return <LoadingScreen message="Configurando proyecto..." />;
   }
 
   const parsedDate = project.date ? new Date(project.date) : null;
@@ -37,7 +35,7 @@ export default function ProjectDetail() {
     : '';
 
   return (
-    <article className="project-detail-page">
+    <article className="project-detail-page fade-in">
       <Seo 
         title={`${project.title} | ${project.name}`} 
         description={project.workDescription}
@@ -56,7 +54,9 @@ export default function ProjectDetail() {
         )}
         
         <div className="post-hero-content container">
-          <Link to="/proyectos" className="back-to-blog">← Ver todos los casos</Link>
+          <button onClick={() => navigate(-1)} className="back-to-blog" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+            ← Ver todos los casos
+          </button>
           
           <div className="post-tags-flex">
              <span className="post-cat-tag">{project.cat || 'Software Corporativo'}</span>

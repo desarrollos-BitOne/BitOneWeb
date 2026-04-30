@@ -4,16 +4,6 @@
   color: white;
 }
 
-.blog-post-loading {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #00f2fe;
-  font-size: 1.2rem;
-  gap: 15px;
-}
-
 /* BLOG SPECIFIC SIDEBAR WIDGETS */
 .sidebar-recents h4 {
   color: #00f2fe;

@@ -1,9 +1,37 @@
+import React, { useEffect, useLayoutEffect } from 'react';
 import logoNormal from '../assets/LogoNormal.webp';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
 import './Nosotros.css';
 
+let memoryCache = {
+  scrollPos: 0
+};
+
 export default function Nosotros() {
+  // Restauración síncrona antes de pintar
+  useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
   const valores = [
     { num: '01', title: 'Accesibilidad', desc: 'Soluciones asequibles y fáciles de entender, sin tecnicismos innecesarios.' },
     { num: '02', title: 'Pragmatismo', desc: 'Nos enfocamos en resolver el problema del cliente de forma directa, sin complicaciones.' },

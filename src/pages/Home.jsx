@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useLayoutEffect, lazy, Suspense } from 'react';
 import { client } from '../lib/sanity';
 import Hero from '../components/Hero';
 import Problem from '../components/Problem';
@@ -13,10 +13,18 @@ const HomeBlog = lazy(() => import('../components/HomeBlog'));
 const Marquee = lazy(() => import('../components/Marquee'));
 const Cta = lazy(() => import('../components/Cta'));
 
+let memoryCache = {
+  data: null,
+  scrollPos: 0
+};
+
 export default function Home() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(memoryCache.data);
 
   useEffect(() => {
+    // Si ya tenemos los datos, evitamos recargar todo el home
+    if (memoryCache.data) return;
+
     // Traemos proyectos, servicios limpios y testimonios
     const query = `{
       "projects": *[_type == "project" && featured == true] | order(date desc)[0..3]{
@@ -73,10 +81,35 @@ export default function Home() {
         }
 
         setData(res);
+        memoryCache.data = res;
       })
       .catch((err) => {
         console.error("❌ [Home] Error al traer datos:", err);
       });
+  }, []);
+
+  // Restauración síncrona antes de pintar
+  useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (

@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '../components/PortableTextCustom';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
+import LoadingScreen from '../components/LoadingScreen';
 import './ServiceDetail.css';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [service, setService] = useState(null);
 
   useEffect(() => {
@@ -19,15 +21,11 @@ export default function ServiceDetail() {
   }, [slug]);
 
   if (!service) {
-    return (
-      <div className="loading-container" style={{ padding: '10rem 0', textAlign: 'center' }}>
-        <div className="live-dot-pulse"></div> Cargando servicio...
-      </div>
-    );
+    return <LoadingScreen message="Personalizando servicio..." />;
   }
 
   return (
-    <article className="service-detail-page">
+    <article className="service-detail-page fade-in">
       <Seo 
         title={`${service.title} - Servicios Digitales`} 
         description={service.summary}
@@ -46,7 +44,9 @@ export default function ServiceDetail() {
         )}
         
         <div className="post-hero-content container">
-          <Link to="/servicios" className="back-to-blog">← Todos los servicios</Link>
+          <button onClick={() => navigate(-1)} className="back-to-blog" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+            ← Todos los servicios
+          </button>
           
           <div className="post-tags-flex">
             <span className="post-cat-tag">Solución BitOne</span>

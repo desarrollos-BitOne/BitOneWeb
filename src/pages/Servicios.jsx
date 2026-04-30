@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Link } from 'react-router-dom';
@@ -7,10 +7,18 @@ import Cta from '../components/Cta';
 import { trackEvent } from '../components/Analytics';
 import './Servicios.css';
 
+let memoryCache = {
+  services: null,
+  scrollPos: 0
+};
+
 export default function Servicios() {
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState(memoryCache.services || []);
 
   useEffect(() => {
+    // Si ya tenemos los datos, evitamos peticiones innecesarias
+    if (memoryCache.services) return;
+
     // Consulta los servicios ordenados por fecha de creación ascendente (automáticamente)
     client.fetch(`*[_type == "service"] | order(_createdAt asc){
       _id,
@@ -21,8 +29,35 @@ export default function Servicios() {
       summaryHome,
       icon
     }`)
-      .then(setServices)
+      .then((data) => {
+        setServices(data);
+        memoryCache.services = data;
+      })
       .catch(console.error);
+  }, []);
+
+  // Restauración síncrona antes de pintar
+  useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (

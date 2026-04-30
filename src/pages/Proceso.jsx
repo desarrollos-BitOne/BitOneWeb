@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
 import './Proceso.css';
 
+let memoryCache = {
+  scrollPos: 0
+};
+
 export default function Proceso() {
+  // Restauración síncrona antes de pintar
+  useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
   const steps = [
     {
       num: '01',

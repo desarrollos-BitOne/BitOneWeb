@@ -1,14 +1,22 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanity';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
 import './Proyectos.css';
 
+let memoryCache = {
+  projects: null,
+  scrollPos: 0
+};
+
 export default function Proyectos() {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(memoryCache.projects || []);
 
   useEffect(() => {
+    // Si ya tenemos los datos, evitamos parpadeos
+    if (memoryCache.projects) return;
+    
     // Consulta todos los proyectos y encuentra el testimonio asociado (si lo hay)
     client.fetch(`*[_type == "project"] | order(date desc){
       _id,
@@ -26,7 +34,34 @@ export default function Proyectos() {
         authorName,
         authorRole
       }
-    }`).then(setProjects).catch(console.error);
+    }`).then((data) => {
+      setProjects(data);
+      memoryCache.projects = data;
+    }).catch(console.error);
+  }, []);
+
+  // Restauración síncrona antes de pintar
+  useLayoutEffect(() => {
+    if (memoryCache.scrollPos > 0) {
+      window.scrollTo({ top: memoryCache.scrollPos, behavior: 'instant' });
+    }
+  }, []);
+
+  // Guardar posición continuamente mientras scrolleamos
+  useEffect(() => {
+    let timeoutId = null;
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        memoryCache.scrollPos = window.scrollY;
+      }, 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
