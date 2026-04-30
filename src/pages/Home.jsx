@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { client } from '../lib/sanity';
 import Hero from '../components/Hero';
-import Marquee from '../components/Marquee';
 import Problem from '../components/Problem';
-import Services from '../components/Services';
-import Portfolio from '../components/Portfolio';
-import Testimonials from '../components/Testimonials';
-import HomeBlog from '../components/HomeBlog'; // NUEVO COMPONENTE BARAJA LECTURAS ALEATORIAS
-import Cta from '../components/Cta';
 import './Home.css';
-
 import Seo from '../components/Seo';
+
+// Componentes "Below the fold" cargados perezosamente para reducir el tamaño del JS inicial
+const Services = lazy(() => import('../components/Services'));
+const Portfolio = lazy(() => import('../components/Portfolio'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const HomeBlog = lazy(() => import('../components/HomeBlog'));
+const Marquee = lazy(() => import('../components/Marquee'));
+const Cta = lazy(() => import('../components/Cta'));
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -87,17 +88,19 @@ export default function Home() {
       />
       <Hero />
       <Problem />
-      {data && <Services services={data.services} />}
-      {data && <Portfolio projects={data.projects} />}
-      {data && <Testimonials testimonials={data.testimonials} />}
-      <HomeBlog />
-      {data && <Marquee clients={data.clients} />}
-      <Cta
-        title="No te quedes rezagado en el pasado digital"
-        description="Ya conoces a BitOne. Es hora de llevar tus procesos al siguiente nivel con software limpio, moderno y accesible."
-        buttonText="Iniciar Análisis Gratuito"
-        pageName="Home"
-      />
+      <Suspense fallback={<div style={{ minHeight: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><div className="live-dot-pulse"></div></div>}>
+        {data && <Services services={data.services} />}
+        {data && <Portfolio projects={data.projects} />}
+        {data && <Testimonials testimonials={data.testimonials} />}
+        <HomeBlog />
+        {data && <Marquee clients={data.clients} />}
+        <Cta
+          title="No te quedes rezagado en el pasado digital"
+          description="Ya conoces a BitOne. Es hora de llevar tus procesos al siguiente nivel con software limpio, moderno y accesible."
+          buttonText="Iniciar Análisis Gratuito"
+          pageName="Home"
+        />
+      </Suspense>
     </div>
   );
 }
