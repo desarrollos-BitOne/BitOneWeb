@@ -16,9 +16,10 @@ export default function Servicios() {
       _id,
       title,
       subtitle,
-      description,
-      icon,
-      actionUrl
+      "slug": slug.current,
+      summaryList,
+      summaryHome,
+      icon
     }`)
       .then(setServices)
       .catch(console.error);
@@ -72,28 +73,16 @@ export default function Servicios() {
                 {service.subtitle && <p className="service-subtitle-premium">{service.subtitle}</p>}
 
                 <div className="service-rich-text">
-                  {service.description && <PortableText value={service.description} />}
+                  <p>{service.summaryList || service.summaryHome}</p>
                 </div>
 
-                {service.actionUrl?.startsWith('/') ? (
-                  <Link
-                    to={service.actionUrl}
-                    className="btn-primary"
-                    onClick={() => trackEvent('Services', 'Click', service.title)}
-                  >
-                    Saber más
-                  </Link>
-                ) : (
-                  <a
-                    href={service.actionUrl || "mailto:atencionclientes@bit-one.net"}
-                    className="btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent('Services', 'External Click', service.title)}
-                  >
-                    Saber más
-                  </a>
-                )}
+                <Link
+                  to={`/servicios/${service.slug}`}
+                  className="btn-primary"
+                  onClick={() => trackEvent('Services', 'Click', service.title)}
+                >
+                  Saber más
+                </Link>
               </div>
 
             </div>
