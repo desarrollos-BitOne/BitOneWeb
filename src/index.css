@@ -80,7 +80,7 @@ body::before {
   right: -5%;
   width: 900px;
   height: 900px;
-  background-image: url('./assets/LogoSoloMonocromatico.png');
+  background-image: url('./assets/LogoSoloMonocromatico.webp');
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.03;

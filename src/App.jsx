@@ -14,7 +14,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import ServiceDetail from './pages/ServiceDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
-import logoSolo from './assets/LogoSoloMonocromatico.png';
+
 
 export default function App() {
   return (

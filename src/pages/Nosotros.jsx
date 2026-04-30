@@ -1,4 +1,4 @@
-import logoNormal from '../assets/LogoNormal.png';
+import logoNormal from '../assets/LogoNormal.webp';
 import Seo from '../components/Seo';
 import Cta from '../components/Cta';
 import './Nosotros.css';

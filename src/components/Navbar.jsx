@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoHorizontal from '../assets/LogoHorizontalMonocromatico.png';
+import logoHorizontal from '../assets/LogoHorizontalMonocromatico.webp';
 import { trackEvent } from './Analytics';
 import { HiMenu, HiX } from 'react-icons/hi';
 import './Navbar.css';

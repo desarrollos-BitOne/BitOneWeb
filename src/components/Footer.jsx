@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
-import logoHorizontal from '../assets/LogoHorizontalMonocromatico.png';
+import logoHorizontal from '../assets/LogoHorizontalMonocromatico.webp';
 import { trackEvent } from './Analytics';
 import './Footer.css';
 
