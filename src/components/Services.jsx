@@ -26,9 +26,13 @@ export default function Services({ services }) {
                 {ser.icon?.asset && (
                   <div className="illustration-box">
                     <img
-                      src={urlFor(ser.icon).width(800).url()}
+                      src={urlFor(ser.icon).width(450).url()}
                       alt={ser.title}
                       className="service-visual-img"
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="260"
                     />
                   </div>
                 )}
