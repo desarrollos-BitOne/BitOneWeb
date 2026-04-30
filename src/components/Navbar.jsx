@@ -90,7 +90,11 @@ export default function Navbar() {
             Cotizar
           </a>
 
-          <button className="mobile-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
+          <button 
+            className="mobile-toggle" 
+            onClick={toggleMenu} 
+            aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+          >
             {isOpen ? <HiX /> : <HiMenu />}
           </button>
         </div>

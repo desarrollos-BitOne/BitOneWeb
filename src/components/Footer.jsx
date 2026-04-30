@@ -50,6 +50,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-icon-btn" 
+              aria-label="Seguir en Facebook"
               title="Facebook"
               onClick={() => trackEvent('Footer', 'Social Click', 'Facebook')}
             >
@@ -60,6 +61,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-icon-btn" 
+              aria-label="Seguir en Instagram"
               title="Instagram"
               onClick={() => trackEvent('Footer', 'Social Click', 'Instagram')}
             >
@@ -70,6 +72,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-icon-btn" 
+              aria-label="Contactar por WhatsApp"
               title="WhatsApp"
               onClick={() => trackEvent('Footer', 'Social Click', 'WhatsApp')}
             >
@@ -78,6 +81,7 @@ export default function Footer() {
             <a 
               href="mailto:atencionclientes@bit-one.net" 
               className="social-icon-btn" 
+              aria-label="Enviar correo electrónico"
               title="Correo"
               onClick={() => trackEvent('Footer', 'Social Click', 'Email')}
             >
