@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
@@ -6,23 +6,28 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID;
 
 export default function Analytics() {
   const location = useLocation();
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     if (GA_MEASUREMENT_ID) {
-      ReactGA.initialize(GA_MEASUREMENT_ID);
+      // Diferimos la inicialización de Google Analytics por 2.5s para no bloquear el Hilo Principal al inicio
+      const timer = setTimeout(() => {
+        ReactGA.initialize(GA_MEASUREMENT_ID);
+        setIsInitialized(true);
+      }, 2500);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   useEffect(() => {
-    if (GA_MEASUREMENT_ID) {
+    if (isInitialized) {
       ReactGA.send({ 
         hitType: 'pageview', 
         page: location.pathname + location.search,
         title: document.title 
       });
-      // console.log('GA4 Pageview sent:', location.pathname + location.search);
     }
-  }, [location]);
+  }, [location, isInitialized]);
 
   return null;
 }
