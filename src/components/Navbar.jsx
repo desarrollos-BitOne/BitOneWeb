@@ -57,6 +57,8 @@ export default function Navbar() {
             src={logoHorizontal} 
             alt="BitOne Agencia Digital" 
             className="navbar-brand-img"
+            width="180"
+            height="45"
           />
         </Link>
 

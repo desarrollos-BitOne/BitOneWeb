@@ -11,7 +11,7 @@ export default function Hero() {
     "Proyecto Digital"
   ];
   const [index, setIndex] = useState(0);
-  const heroImageUrl = "https://cdn.sanity.io/images/fjtg86e5/production/f8e4e7e6f3e5e4e7e6f3e5e4e7e6f3e5e4e7e6f3-1920x1080.jpg?auto=format&w=1920&q=80";
+  const heroBase = "https://cdn.sanity.io/images/fjtg86e5/production/f8e4e7e6f3e5e4e7e6f3e5e4e7e6f3e5e4e7e6f3-1920x1080.jpg?auto=format&q=75";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,19 +22,9 @@ export default function Hero() {
 
   return (
     <section className="hero-modern-v2">
-      <div className="hero-bg-container">
-        <img 
-          src={heroImageUrl} 
-          alt="BitOne Tech" 
-          className="hero-img-optimized"
-          fetchpriority="high"
-          loading="eager"
-          decoding="async"
-        />
-        <div className="hero-overlay-gradient"></div>
-      </div>
       <div className="ambient-glow cyan"></div>
       <div className="ambient-glow pink"></div>
+      <div className="bg-grid-pattern"></div>
 
       <div className="container hero-grid">
         <div className="hero-text-side centered-hero">

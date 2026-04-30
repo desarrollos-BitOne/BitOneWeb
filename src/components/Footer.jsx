@@ -17,6 +17,9 @@ export default function Footer() {
               src={logoHorizontal} 
               alt="BitOne Agencia Digital" 
               className="footer-brand-img"
+              width="150"
+              height="38"
+              loading="lazy"
             />
           </Link>
           <p className="footer-description">

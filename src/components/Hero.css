@@ -48,6 +48,19 @@
 .ambient-glow.cyan { top: -10%; left: -10%; background: #00f2fe; }
 .ambient-glow.pink { bottom: -10%; right: -10%; background: #ec4899; }
 
+.bg-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
