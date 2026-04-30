@@ -100,7 +100,7 @@ export default function ProjectDetail() {
                 <h3>Sobre el Proyecto</h3>
                 <p>{project.workDescription}</p>
                 
-                <a href="https://wa.me/526681963932?text=Hola,%20me%20interes%C3%B3%20el%20caso%20de%20éxito%20de%20${project.name}.%20Quisiera%20cotizar%20algo%20similar." target="_blank" rel="noopener noreferrer" className="sidebar-btn-contact">
+                <a href={`https://wa.me/526681963932?text=Hola,%20me%20interes%C3%B3%20el%20caso%20de%20éxito%20de%20${project.name}.%20Quisiera%20cotizar%20algo%20similar.`} target="_blank" rel="noopener noreferrer" className="sidebar-btn-contact">
                   Cotizar Proyecto Similar
                 </a>
               </div>

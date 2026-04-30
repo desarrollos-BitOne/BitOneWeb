@@ -81,7 +81,7 @@ export default function ServiceDetail() {
                 <h3>Impulsa tu Negocio</h3>
                 <p>Nuestros expertos en {service.title} están listos para analizar tus procesos y proponer la mejor solución técnica.</p>
                 
-                <a href="https://wa.me/526681963932?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20${service.title}." target="_blank" rel="noopener noreferrer" className="sidebar-btn-cyber">
+                <a href={`https://wa.me/526681963932?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20${service.title}.`} target="_blank" rel="noopener noreferrer" className="sidebar-btn-cyber">
                   Solicitar Consultoría
                 </a>
               </div>
