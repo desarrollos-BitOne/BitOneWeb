@@ -10,6 +10,11 @@
   --bitone-dark: #0f172a;
   --bitone-light: #f8fafc;
   --bitone-text-gray: #cbd5e1;
+
+  /* Colores de marca unificados */
+  --color-primary: #00f2fe;
+  --color-bg: #0f172a;
+  --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #ff1b6b 100%);
   
   /* Espaciados y transiciones */
   --section-padding: 100px;

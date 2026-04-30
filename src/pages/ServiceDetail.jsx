@@ -35,40 +35,56 @@ export default function ServiceDetail() {
         url={`/servicios/${slug}`}
       />
 
-      <header className="service-hero-premium">
-        <div className="container service-hero-content">
-          <Link to="/servicios" className="back-to-services">← Todos los servicios</Link>
+      <header className="post-hero-premium">
+        <div className="hero-background-overlay"></div>
+        {service.image && (
+          <img 
+            src={urlFor(service.image).width(1920).url()} 
+            alt={service.title} 
+            className="post-hero-img" 
+          />
+        )}
+        
+        <div className="post-hero-content container">
+          <Link to="/servicios" className="back-to-blog">← Todos los servicios</Link>
           
-          {service.icon && (
-            <div className="service-icon-detail">
-              <img src={urlFor(service.icon).url()} alt={service.title} />
-            </div>
-          )}
+          <div className="post-tags-flex">
+            <span className="post-cat-tag">Solución BitOne</span>
+          </div>
           
-          <h1 className="service-main-title">{service.title}</h1>
+          <h1 className="post-main-title">{service.title}</h1>
           <p className="service-subtitle-large">{service.subtitle}</p>
         </div>
       </header>
 
-      <div className="service-body-content container">
-        <div className="service-content-layout">
+      <div className="post-body-editorial container">
+        <div className="post-layout-grid">
           
-          <div className="service-rich-text">
-            {service.description ? (
-              <PortableText value={service.description} components={portableTextComponents} />
+          <div className="editorial-content">
+            {service.content ? (
+              <PortableText value={service.content} components={portableTextComponents} />
             ) : (
-              <p>{service.summary}</p>
+              <div className="project-fallback-view">
+                <h2 className="fallback-title">Visión General</h2>
+                <p className="fallback-text">{service.summary}</p>
+                <div className="status-badge-minimal">
+                  <span className="live-dot-pulse"></span>
+                  Documentación completa en proceso
+                </div>
+              </div>
             )}
           </div>
 
-          <aside className="service-sidebar">
-            <div className="service-sticky-card">
-              <h3>Impulsa tu Negocio</h3>
-              <p>Nuestros expertos en {service.title} están listos para analizar tus procesos y proponer la mejor solución técnica.</p>
-              
-              <a href="https://wa.me/526681963932?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20${service.title}." target="_blank" rel="noopener noreferrer" className="btn-service-contact">
-                Solicitar Consultoría
-              </a>
+          <aside className="blog-sidebar">
+            <div className="sidebar-sticky-box">
+              <div className="sidebar-cta-widget">
+                <h3>Impulsa tu Negocio</h3>
+                <p>Nuestros expertos en {service.title} están listos para analizar tus procesos y proponer la mejor solución técnica.</p>
+                
+                <a href="https://wa.me/526681963932?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20${service.title}." target="_blank" rel="noopener noreferrer" className="sidebar-btn-cyber">
+                  Solicitar Consultoría
+                </a>
+              </div>
             </div>
           </aside>
           

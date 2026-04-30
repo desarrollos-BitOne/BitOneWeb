@@ -45,26 +45,30 @@ export default function ProjectDetail() {
         url={`/proyectos/${slug}`}
       />
 
-      <header className="project-hero-premium">
-        <div className="hero-background-overlay" style={{ background: 'linear-gradient(to top, var(--color-bg) 0%, transparent 100%)', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}></div>
+      <header className="post-hero-premium">
+        <div className="hero-background-overlay"></div>
         {project.image && (
           <img 
             src={urlFor(project.image).width(1920).url()} 
             alt={project.title} 
-            className="project-hero-img" 
+            className="post-hero-img" 
           />
         )}
         
-        <div className="project-hero-content container">
-          <Link to="/proyectos" className="back-to-projects">← Ver todos los casos</Link>
+        <div className="post-hero-content container">
+          <Link to="/proyectos" className="back-to-blog">← Ver todos los casos</Link>
           
-          <div className="project-meta-premium">
-             <span className="project-cat-tag">{project.cat || 'Software Corporativo'}</span>
-             {displayDate && <span className="project-date-large">{displayDate}</span>}
+          <div className="post-tags-flex">
+             <span className="post-cat-tag">{project.cat || 'Software Corporativo'}</span>
           </div>
           
-          <h1 className="project-main-title">{project.title || 'Proyecto BitOne'}</h1>
-          <p className="project-client-subtitle">Caso de éxito: <strong>{project.name || 'Cliente por definir'}</strong></p>
+          <h1 className="post-main-title">{project.title || 'Proyecto BitOne'}</h1>
+          
+          <div className="post-meta-premium">
+             <span className="post-date-large">{displayDate}</span>
+             <span className="meta-divider">•</span>
+             <span className="post-author-name">Caso de éxito: <strong>{project.name}</strong></span>
+          </div>
         </div>
       </header>
 

@@ -39,12 +39,16 @@ export default function Services({ services }) {
                 {ser.subtitle && <h4 className="service-subtitle">{ser.subtitle}</h4>}
                 <p>{ser.summary}</p>
 
-                {ser.slug ? (
+                {ser.actionUrl ? (
+                  ser.actionUrl.startsWith('/') ? (
+                    <Link to={ser.actionUrl} className="service-link-btn">Saber más &rarr;</Link>
+                  ) : (
+                    <a href={ser.actionUrl} className="service-link-btn" target="_blank" rel="noopener noreferrer">Saber más &rarr;</a>
+                  )
+                ) : ser.slug ? (
                   <Link to={`/servicios/${ser.slug}`} className="service-link-btn">Saber más &rarr;</Link>
-                ) : ser.actionUrl?.startsWith('/') ? (
-                  <Link to={ser.actionUrl} className="service-link-btn">Saber más &rarr;</Link>
                 ) : (
-                  <a href={ser.actionUrl || "mailto:atencionclientes@bit-one.net"} className="service-link-btn" target="_blank" rel="noopener noreferrer">Saber más &rarr;</a>
+                  <a href="mailto:atencionclientes@bit-one.net" className="service-link-btn">Contactar &rarr;</a>
                 )}
               </div>
               <div className="card-glow-effect"></div>

@@ -85,7 +85,7 @@ export default function Proyectos() {
 
                     <div className="work-desc-box">
                       <span className="work-desc-tag">Solución Implementada</span>
-                      <p className="work-desc">{proj.workDescription}</p>
+                      <p className="work-desc">{proj.longDescription || proj.workDescription}</p>
                       
                       {proj.slug && (
                         <Link to={`/proyectos/${proj.slug}`} className="btn-saber-mas-proyecto">
