@@ -19,9 +19,13 @@ export default function Marquee({ clients }) {
             {marqueeItems.map((proj, i) => (
               <div key={`${proj._id}-${i}`} className="marquee-item">
                 <img 
-                  src={urlFor(proj.logo).width(600).url()} 
+                  src={urlFor(proj.logo).width(250).url()} 
                   alt={`Logo de ${proj.name}`} 
                   title={proj.name}
+                  loading="lazy"
+                  decoding="async"
+                  width="150"
+                  height="60"
                 />
               </div>
             ))}
